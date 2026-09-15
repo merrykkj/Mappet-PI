@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MapPet</title>
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
@@ -32,20 +33,56 @@
         </nav>
     </header>
 
-    <main class="main-content">
-        <section class="hero">
-            <div class="hero-container">
+<main class="main-content">
+    <section class="hero">
+        <div class="hero-container">
+
+            <div class="hero-card-wrapper">
+                <img src="./assets/images/cat1.png" alt="Gato espiando pela esquerda" class="cat-img cat-left">
+
                 <div class="hero-card">
                     <h2>Trabalhamos para<br>o reencontro</h2>
                 </div>
+            </div>
+            <img src="./assets/images/dog4.png" alt="Cachorro espiando pela direita" class="cat-img2 cat-right">
 
-                <div class="hero-buttons">
-                    <a href="#" class="btn-hero btn-perdi">Perdi meu pet</a>
-                    <a href="#" class="btn-hero btn-encontrei">Encontrei um pet</a>
+            <div class="hero-buttons">
+                <a href="#" class="btn-hero btn-perdi">Perdi meu pet</a>
+                <a href="#" class="btn-hero btn-encontrei">Encontrei um pet</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="sobre" id="sobre">
+        <div class="sobre-container">
+            <div class="sobre-header">
+                <h2>Sobre o Map<span>Pet</span></h2>
+                <p>Nossa missão é usar a tecnologia para reconectar famílias e dar um lar seguro para cada patinha.</p>
+            </div>
+
+            <div class="sobre-cards">
+                <div class="sobre-card">
+                    <div class="sobre-icon"><img src="./assets/images/loupe.png" class="icon-svg"></div>
+                    <h3>Busca Inteligente</h3>
+                    <p>Mapeamos geolocalizações para ajudar na busca rápida de animais perdidos na sua região.</p>
+                </div>
+
+                <div class="sobre-card">
+                    <div class="sobre-icon"><img src="./assets/images/heart3.png" class="icon-svg"></i></div>
+                    <h3>Comunidade Unida</h3>
+                    <p>Conectamos protetores, ONGs e tutores em uma rede colaborativa de apoio e resgate.</p>
+                </div>
+
+                <div class="sobre-card">
+                    <div class="sobre-icon"><img src="./assets/images/dog3.png" class="icon-svg"></div>
+                    <h3>Adoção Responsável</h3>
+                    <p>Facilitamos o processo de encontrar um novo lar amoroso para pets resgatados.</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
     <footer class="rodape">
         <div class="rodape-conteudo">
