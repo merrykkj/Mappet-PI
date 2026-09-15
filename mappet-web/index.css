@@ -1,76 +1,147 @@
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
 }
 
-header {
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.header {
     background-color: #96D1FA;
     width: 100%;
     height: 88px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-nav {
+.nav-container {
     height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     align-items: center;
-    justify-content: center; 
-    padding: 0 40px;
-    box-sizing: border-box;
-    position: relative; 
-}
-
-ul {
-    list-style: none;
-    display: flex;
-    gap: 30px; 
-    font-size: 25px;
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    color: white;
-    cursor: pointer;
-    display: inline-block; 
-    transition: transform 0.3s ease, color 0.3s ease; 
-}
-
-li:hover {
-    color: orange;
-    transform: scale(1.1); 
+    justify-content: space-between; 
 }
 
 .logo {
+    text-decoration: none;
     display: flex;
     align-items: center;
-    cursor: pointer;
-    font-family: sans-serif;
-    position: absolute;
-    left: 40px;
 }
 
 .logo h1 {
-    margin: 0;
-    font-size: 32px; 
-    color: white;   
-    font-weight: bold;
+    font-size: 32px;
+    color: #ffffff;
+    font-weight: 700;
 }
 
 .logo span {
-    font-size: 32px; 
-    color: orange;  
-    font-weight: bold;
-    margin-left: 2px;
+    color: orange;
+}
+
+.nav-links, .rodape-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links a, .rodape-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-block;
+}
+
+.nav-links a:hover, .rodape-links a:hover {
+    color: orange;
+    transform: translateY(-2px);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    padding: 10px 22px; 
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-login {
+    color: #ffffff; 
+    background-color: transparent;
+}
+
+.btn-login:hover {
+    color: orange; 
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-cadastro {
+    color: orange;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.btn-cadastro:hover {
+    color: #ffffff;
+    background-color: orange; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
+}
+
+.btn:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 2px;
 }
 
 .rodape {
     background-color: #96D1FA;
     width: 100%;
-    height: 88px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
     box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.rodape-conteudo {
+    max-width: 1200px;
+    height: 88px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rodape-texto {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.rodape-texto span {
+    color: orange;
+    font-weight: bold;
+}
+
+.rodape-links a {
+    font-size: 14px;
 }
