@@ -2,10 +2,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-weight: normal;
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Mouse Memoirs', sans-serif;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -21,6 +22,7 @@ body {
     width: 100%;
     height: 88px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    position: fixed;
 }
 
 .nav-container {
@@ -30,7 +32,7 @@ body {
     padding: 0 24px;
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
 .logo {
@@ -40,31 +42,43 @@ body {
 }
 
 .logo h1 {
-    font-size: 32px;
+    font-size: 50px;
     color: #ffffff;
-    font-weight: 700;
 }
 
 .logo span {
     color: orange;
 }
 
-.nav-links, .rodape-links {
+.nav-links {
     list-style: none;
     display: flex;
-    gap: 24px;
+    gap: 30px;
 }
 
-.nav-links a, .rodape-links a {
+.rodape-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 30px;
     transition: transform 0.2s ease, color 0.2s ease;
     display: inline-block;
 }
 
-.nav-links a:hover, .rodape-links a:hover {
+.rodape-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-block;
+}
+
+.nav-links a:hover,
+.rodape-links a:hover {
     color: orange;
     transform: translateY(-2px);
 }
@@ -77,10 +91,9 @@ body {
 
 .btn {
     text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
+    font-size: 25px;
     letter-spacing: 0.5px;
-    padding: 10px 22px; 
+    padding: 10px 22px;
     border-radius: 8px;
     transition: all 0.25s ease;
     display: inline-flex;
@@ -89,12 +102,12 @@ body {
 }
 
 .btn-login {
-    color: #ffffff; 
+    color: #ffffff;
     background-color: transparent;
 }
 
 .btn-login:hover {
-    color: orange; 
+    color: orange;
     background-color: rgba(255, 255, 255, 0.15);
 }
 
@@ -106,14 +119,19 @@ body {
 
 .btn-cadastro:hover {
     color: #ffffff;
-    background-color: orange; 
-    transform: translateY(-2px); 
+    background-color: orange;
+    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
 }
 
 .btn:focus-visible {
     outline: 3px solid orange;
     outline-offset: 2px;
+}
+
+
+.main-content {
+    background-color: #96D1FA;
 }
 
 .rodape {
@@ -134,14 +152,13 @@ body {
 
 .rodape-texto {
     color: #ffffff;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .rodape-texto span {
     color: orange;
-    font-weight: bold;
 }
 
 .rodape-links a {
-    font-size: 14px;
+    font-size: 25px;
 }
