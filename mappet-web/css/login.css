@@ -1,0 +1,717 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f5f8fc;
+    color: #333;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+}
+
+.lado-esquerdo {
+    width: 48%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg,
+    #78afe3 0%,
+    #6097d0 55%,
+    #518ac6 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.brand {
+    position: absolute;
+    top: 38px;
+    left: 45px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    z-index: 5;
+}
+
+.logo-texto {
+    color: #ffffff;
+
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.logo-destaque {
+    color: #ff8a00;
+}
+
+.logo-icone {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #ff8a00;
+    color: #ffffff;
+
+    font-size: 0.8rem;
+
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+
+.conteudo-esquerdo {
+    width: 100%;
+    max-width: 620px;
+
+    position: relative;
+    z-index: 3;
+
+    align-self: flex-start;
+
+    margin-top: 155px;
+}
+
+.texto-esquerdo {
+    padding-left: 30px;
+}
+
+.frase-efeito {
+    color: #ffffff;
+    font-family: 'Montserrat Subrayada', sans-serif;
+    font-size: 2.5rem;
+    line-height: 1.05;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    text-align: center;
+    filter: drop-shadow(0 9px 15px rgba(0, 0, 0, 0.566));
+}
+
+.sub-frase {
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.5;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.pet-dog {
+    position: absolute;
+
+    bottom: -15px;
+    left: 0;
+
+    width: min(58%, 500px);
+    max-height: 70vh;
+
+    object-fit: contain;
+    object-position: bottom left;
+
+    z-index: 2;
+
+    filter: drop-shadow(0 18px 22px rgba(255, 255, 255, 0.678));
+}
+
+.pet-catndog {
+    position: absolute;
+    bottom: -15px;
+    left: 485px;
+    width: min(58%, 500px);
+    max-height: 50vh;
+    object-fit: contain;
+    object-position: bottom left;
+    z-index: 2;
+    filter: drop-shadow(0 18px 22px rgba(255, 255, 255, 0.619));
+}
+
+
+.decoracao {
+    position: absolute;
+
+    border-radius: 50%;
+
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.decoracao-1 {
+    width: 280px;
+    height: 280px;
+
+    top: -100px;
+    right: -80px;
+}
+
+.decoracao-2 {
+    width: 180px;
+    height: 180px;
+
+    bottom: 80px;
+    right: -70px;
+
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.decoracao-3 {
+    width: 100px;
+    height: 100px;
+
+    bottom: 500px;
+    right: 130px;
+
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.decoracao-4 {
+    width: 280px;
+    height: 280px;
+
+    bottom: 100px;
+    right: 200px;
+
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.decoracao-5 {
+    width: 180px;
+    height: 180px;
+
+    bottom: 600px;
+    right: 700px;
+
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.decoracao-6 {
+    width: 100px;
+    height: 100px;
+
+    bottom: 800px;
+    right: 600px;
+
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.decoracao-7 {
+    width: 280px;
+    height: 280px;
+
+    bottom: 500px;
+    right: 300px;
+
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+
+
+
+.lado-direito {
+    width: 52%;
+    min-height: 100vh;
+
+    background-color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px;
+}
+
+
+
+.login-content {
+    width: 100%;
+    max-width: 470px;
+}
+
+
+
+.header-login {
+    position: relative;
+
+    text-align: center;
+
+    margin-bottom: 38px;
+}
+
+.pequeno-titulo {
+    display: block;
+
+    color: #ff8a00;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 7px;
+}
+
+.titulo-principal {
+    color: #6097d0;
+
+    font-family: 'Mouse Memoirs', sans-serif;
+
+    font-size: clamp(4.5rem, 7vw, 6.5rem);
+    font-weight: 400;
+
+    line-height: 0.9;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    margin-top: 15px;
+
+    color: #8b929a;
+
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
+
+.patinhas-decorativas {
+    position: absolute;
+
+    top: -25px;
+    left: 25px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    color: #dce4ec;
+
+    transform: rotate(-25deg);
+}
+
+.paw-1 {
+    font-size: 1.3rem;
+}
+
+.paw-2 {
+    margin-left: 12px;
+    font-size: 1rem;
+}
+
+.paw-3 {
+    margin-left: 5px;
+    font-size: 0.7rem;
+}
+
+
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+
+    gap: 19px;
+}
+
+
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.input-group label {
+    color: #4e5660;
+
+    font-size: 0.86rem;
+    font-weight: 800;
+
+    padding-left: 3px;
+}
+
+
+
+.input-wrapper {
+    position: relative;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+
+    height: 58px;
+
+    padding: 0 50px 0 50px;
+
+    border: 1.5px solid #e5eaf0;
+    border-radius: 14px;
+
+    background-color: #f8fafc;
+
+    color: #343a40;
+
+    font-size: 0.98rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input::placeholder {
+    color: #aeb6bf;
+}
+
+input:focus {
+    border-color: #6097d0;
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(96, 151, 208, 0.12);
+}
+
+
+
+.icone-input {
+    position: absolute;
+
+    top: 50%;
+    left: 19px;
+
+    transform: translateY(-50%);
+
+    color: #aab4bf;
+
+    font-size: 1rem;
+
+    pointer-events: none;
+
+    transition: color 0.2s ease;
+}
+
+.input-wrapper:focus-within .icone-input {
+    color: #6097d0;
+}
+
+
+
+.mostrar-senha {
+    position: absolute;
+
+    top: 50%;
+    right: 17px;
+
+    transform: translateY(-50%);
+
+    border: none;
+    background: transparent;
+
+    color: #aab4bf;
+
+    font-size: 1rem;
+
+    padding: 5px;
+}
+
+.mostrar-senha:hover {
+    color: #6097d0;
+}
+
+
+
+.opcoes-login {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: -3px;
+
+    font-size: 0.82rem;
+}
+
+.lembrar-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #7b838c;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.lembrar-me input {
+    width: 15px;
+    height: 15px;
+
+    accent-color: #6097d0;
+
+    cursor: pointer;
+}
+
+.opcoes-login a {
+    color: #6097d0;
+
+    font-weight: 800;
+}
+
+.opcoes-login a:hover {
+    color: #4d83bc;
+}
+
+
+
+.btn-entrar {
+    width: 100%;
+    height: 58px;
+
+    margin-top: 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(135deg,
+            #ff9419,
+            #ff7900);
+
+    color: #ffffff;
+
+    font-size: 1rem;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 8px 20px rgba(255, 133, 0, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn-entrar i {
+    font-size: 0.85rem;
+
+    transition: transform 0.2s ease;
+}
+
+.btn-entrar:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(255, 133, 0, 0.28);
+}
+
+.btn-entrar:hover i {
+    transform: translateX(4px);
+}
+
+.btn-entrar:active {
+    transform: translateY(0);
+}
+
+
+
+.cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    margin-top: 4px;
+
+    color: #8b929a;
+
+    font-size: 0.85rem;
+}
+
+.cadastro a {
+    color: #ff8500;
+
+    font-weight: 800;
+}
+
+.cadastro a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+
+    .lado-esquerdo {
+        width: 42%;
+        padding: 30px;
+    }
+
+    .lado-direito {
+        width: 58%;
+        padding: 40px;
+    }
+
+    .frase-efeito {
+        font-size: 2.1rem;
+    }
+
+    .pet-dog {
+        width: 65%;
+    }
+
+    .brand {
+        left: 30px;
+    }
+}
+
+
+
+@media (max-width: 700px) {
+
+    .login-container {
+        min-height: 100vh;
+        display: block;
+    }
+
+
+    .lado-esquerdo {
+        display: none;
+    }
+
+    .lado-direito {
+        width: 100%;
+        min-height: 100vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 40px 25px;
+    }
+
+    .login-content {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .header-login {
+        margin-bottom: 35px;
+    }
+
+    .titulo-principal {
+        font-size: 5rem;
+    }
+
+    .subtitulo {
+        font-size: 0.95rem;
+    }
+
+    .patinhas-decorativas {
+        top: -25px;
+        left: 0;
+    }
+
+    .form-login {
+        gap: 18px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        height: 56px;
+    }
+
+    .btn-entrar {
+        height: 56px;
+    }
+}
+
+
+@media (max-width: 420px) {
+
+    .lado-direito {
+        padding: 30px 20px;
+    }
+
+    .login-content {
+        max-width: 100%;
+    }
+
+    .titulo-principal {
+        font-size: 4.3rem;
+    }
+
+    .subtitulo {
+        font-size: 0.9rem;
+        margin-top: 12px;
+    }
+
+    .pequeno-titulo {
+        font-size: 0.68rem;
+    }
+
+    .patinhas-decorativas {
+        left: -5px;
+        top: -20px;
+    }
+
+    .paw-1 {
+        font-size: 1.1rem;
+    }
+
+    .paw-2 {
+        font-size: 0.85rem;
+    }
+
+    .paw-3 {
+        font-size: 0.65rem;
+    }
+
+    .opcoes-login {
+        font-size: 0.76rem;
+    }
+
+    .cadastro {
+        flex-direction: column;
+        gap: 3px;
+    }
+}

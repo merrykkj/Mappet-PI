@@ -158,19 +158,52 @@ h3,
     z-index: 1;
 }
 
-.patinha-1 { font-size: 75px; top: 15%; left: 7%; }
-.patinha-2 { font-size: 55px; top: 68%; left: 11%; }
-.patinha-3 { font-size: 85px; top: 18%; right: 8%; }
-.patinha-4 { font-size: 65px; top: 62%; right: 12%; }
+.patinha-1 {
+    font-size: 75px;
+    top: 15%;
+    left: 7%;
+}
+
+.patinha-2 {
+    font-size: 55px;
+    top: 68%;
+    left: 11%;
+}
+
+.patinha-3 {
+    font-size: 85px;
+    top: 18%;
+    right: 8%;
+}
+
+.patinha-4 {
+    font-size: 65px;
+    top: 62%;
+    right: 12%;
+}
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-12px) rotate(4deg); }
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(4deg);
+    }
 }
 
 @keyframes floatReverse {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(12px) rotate(-4deg); }
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(12px) rotate(-4deg);
+    }
 }
 
 .float-slow {
@@ -265,12 +298,26 @@ h3,
     bottom: -10px;
     z-index: 2;
     pointer-events: none;
-    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.12));
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
 }
 
 .cat-left {
     left: -160px;
 }
+
+.cat-img2 {
+    position: absolute;
+    height: 125%;
+    bottom: -20px;
+    z-index: 2;
+    pointer-events: none;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
+}
+
+.cat-right {
+    right: -161px;
+}
+
 
 .dog-top {
     position: absolute;
@@ -280,7 +327,7 @@ h3,
     height: 200px;
     z-index: 3;
     pointer-events: none;
-    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.12));
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
 }
 
 .hero-buttons {
@@ -442,7 +489,7 @@ h3,
 .adocao {
     width: 100%;
     max-width: 1200px;
-    margin: 140px auto 0 auto;
+    margin: 200px auto 0 auto;
     padding: 0 24px 100px 24px;
 }
 
@@ -628,7 +675,7 @@ h3,
 .contato {
     width: 100%;
     max-width: 1200px;
-    margin: 80px auto 0 auto;
+    margin: 150px auto 0 auto;
     padding: 0 24px 100px 24px;
 }
 
@@ -800,55 +847,111 @@ h3,
     }
 }
 
-
 .rodape {
-    background-color: #96D1FA;
+    background: rgba(150, 209, 250, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     width: 100%;
-    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.15);
+    border-top: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
+    margin-top: auto;
+    padding: 40px 0 20px 0;
 }
 
 .rodape-conteudo {
     max-width: 1200px;
-    height: 88px;
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.rodape-top {
+    display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.rodape-texto {
+.rodape-brand h2 {
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 40px;
     color: #ffffff;
-    font-size: 1.1rem;
-    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.rodape-texto span {
+.rodape-brand span {
     color: #ff8c00;
 }
 
 .rodape-links {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 24px;
+    flex-wrap: wrap;
 }
 
 .rodape-links a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 24px;
-    transition: transform 0.2s ease, color 0.2s ease;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.25s ease;
     display: inline-block;
 }
 
 .rodape-links a:hover {
     color: #ff8c00;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+}
+
+.rodape-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.rodape-texto {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.rodape-redes {
+    display: flex;
+    gap: 16px;
+}
+
+.rodape-redes a {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.rodape-redes a:hover {
+    background: #ff8c00;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
 }
 
 @media (max-width: 1024px) {
-    .stat-badge, .patinha-bg {
+
+    .stat-badge,
+    .patinha-bg {
         display: none;
     }
 }
-
