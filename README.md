@@ -34,7 +34,7 @@ Mappet-PI/
 
 *   Frontend: HTML5, CSS3, JavaScript
 *   Backend / Lógica de Processamento: Java
-*   Persistência: Banco de Dados Relacional (SQL)
+*   Persistência: Banco de Dados Relacional (Oracle)
 
 ## Contexto Acadêmico
 
