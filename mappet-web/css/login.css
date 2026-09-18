@@ -40,10 +40,7 @@ a {
     min-height: 100vh;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(145deg,
-    #78afe3 0%,
-    #6097d0 55%,
-    #518ac6 100%);
+    background: linear-gradient(rgb(74, 129, 167), #96D1FA, rgb(74, 129, 167));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,9 +130,9 @@ a {
 .pet-catndog {
     position: absolute;
     bottom: -15px;
-    left: 410px;
+    left: 485px;
     width: min(58%, 500px);
-    max-height: 50vh;
+    max-height: 40vh;
     object-fit: contain;
     object-position: bottom left;
     z-index: 2;
@@ -148,59 +145,83 @@ a {
     background-color: rgba(255, 255, 255, 0.08);
 }
 
-.decoracao-1 {
-    width: 280px;
-    height: 280px;
-    top: -100px;
-    right: -80px;
+.patinha-bg {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.28);
+    pointer-events: none;
+    z-index: 1;
 }
 
-.decoracao-2 {
-    width: 180px;
-    height: 180px;
-    bottom: 80px;
-    right: -70px;
-    background-color: rgba(255, 255, 255, 0.06);
+.patinha-1 {
+    font-size: 42px;
+    top: 12%;
+    left: 8%;
+    transform: rotate(-20deg);
 }
 
-.decoracao-3 {
-    width: 100px;
-    height: 100px;
-    bottom: 500px;
-    right: 130px;
-    background-color: rgba(255, 255, 255, 0.06);
+.patinha-2 {
+    font-size: 28px;
+    top: 28%;
+    left: 18%;
+    transform: rotate(15deg);
 }
 
-.decoracao-4 {
-    width: 280px;
-    height: 280px;
-    bottom: 100px;
-    right: 200px;
-    background-color: rgba(255, 255, 255, 0.06);
+.patinha-3 {
+    font-size: 50px;
+    top: 10%;
+    right: 12%;
+    transform: rotate(25deg);
 }
 
-.decoracao-5 {
-    width: 180px;
-    height: 180px;
-    bottom: 600px;
-    right: 700px;
-    background-color: rgba(255, 255, 255, 0.06);
+.patinha-4 {
+    font-size: 32px;
+    top: 32%;
+    right: 22%;
+    transform: rotate(-15deg);
 }
 
-.decoracao-6 {
-    width: 100px;
-    height: 100px;
-    bottom: 800px;
-    right: 600px;
-    background-color: rgba(255, 255, 255, 0.06);
+.patinha-5 {
+    font-size: 38px;
+    top: 55%;
+    left: 6%;
+    transform: rotate(-30deg);
 }
 
-.decoracao-7 {
-    width: 280px;
-    height: 280px;
-    bottom: 500px;
-    right: 300px;
-    background-color: rgba(255, 255, 255, 0.06);
+.patinha-6 {
+    font-size: 44px;
+    top: 52%;
+    right: 8%;
+    transform: rotate(20deg);
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px) rotate(-15deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(-5deg);
+    }
+}
+
+@keyframes floatReverse {
+    0%,
+    100% {
+        transform: translateY(0px) rotate(15deg);
+    }
+
+    50% {
+        transform: translateY(10px) rotate(5deg);
+    }
+}
+
+.float-slow {
+    animation: float 5s ease-in-out infinite;
+}
+
+.float-reverse {
+    animation: floatReverse 6s ease-in-out infinite;
 }
 
 .lado-direito {
@@ -258,7 +279,7 @@ a {
 }
 
 .titulo-principal {
-    color: #6097d0;
+    color: #96D1FA;
     font-family: 'Mouse Memoirs', sans-serif;
     font-size: clamp(4.5rem, 7vw, 6.5rem);
     font-weight: 400;
@@ -332,10 +353,7 @@ input[type="password"] {
     color: #343a40;
     font-size: 0.98rem;
     outline: none;
-    transition:
-        border-color 0.2s ease,
-        background-color 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 input::placeholder {
@@ -422,9 +440,7 @@ input:focus {
     gap: 12px;
     border: none;
     border-radius: 14px;
-    background: linear-gradient(135deg,
-            #ff9419,
-            #ff7900);
+    background: linear-gradient(135deg, #ff9419, #ff7900);
     color: #ffffff;
     font-size: 1rem;
     font-weight: 800;
@@ -515,7 +531,7 @@ input:focus {
         flex-direction: column;
         gap: 4px;
     }
-    
+
     .btn-voltar-home {
         top: 20px;
         right: 20px;
