@@ -11,9 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Nunito:wght@400;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="./index.js" defer></script>
 </head>
 
 <body>
+
+    <div class="menu-overlay"></div>
 
     <header class="header">
         <nav class="nav-container">
@@ -21,16 +24,22 @@
                 <h1>MAP<span>PET</span></h1>
             </a>
 
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#adocao">Adoção</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
+            <button class="hamburger-btn" aria-label="Abrir Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
-            <div class="nav-actions">
-                <a href="./login.html" class="btn btn-login">LOGIN</a>
-                <a href="#" class="btn btn-cadastro">CADASTRE-SE</a>
+            <div class="nav-menu-wrapper">
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#adocao">Adoção</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="./login.html" class="btn btn-login">LOGIN</a>
+                    <a href="#" class="btn btn-cadastro">CADASTRE-SE</a>
+                </div>
             </div>
         </nav>
     </header>
@@ -183,6 +192,7 @@
                 </div>
             </div>
         </section>
+
         <section class="contato" id="contato">
             <div class="contato-container">
                 <div class="contato-header">

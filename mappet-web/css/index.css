@@ -27,6 +27,25 @@ h3,
     font-weight: normal;
 }
 
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 .header {
     background-color: rgba(150, 209, 250, 0.95);
     backdrop-filter: blur(10px);
@@ -67,13 +86,19 @@ h3,
     position: relative;
 }
 
+.nav-menu-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
     gap: 32px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .nav-links a {
@@ -215,6 +240,7 @@ h3,
 }
 
 .stat-badge {
+    display: none;
     position: absolute;
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(14px);
@@ -303,6 +329,7 @@ h3,
 
 .cat-left {
     left: -160px;
+    display: block;
 }
 
 .cat-img2 {
@@ -316,8 +343,8 @@ h3,
 
 .cat-right {
     right: -161px;
+    display: block;
 }
-
 
 .dog-top {
     position: absolute;
@@ -671,7 +698,6 @@ h3,
     transform: translateY(-2px);
 }
 
-
 .contato {
     width: 100%;
     max-width: 1200px;
@@ -841,12 +867,6 @@ h3,
     transform: translateY(-2px);
 }
 
-@media (max-width: 900px) {
-    .contato-wrapper {
-        grid-template-columns: 1fr;
-    }
-}
-
 .rodape {
     background: rgba(150, 209, 250, 0.85);
     backdrop-filter: blur(12px);
@@ -948,10 +968,223 @@ h3,
     box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
 }
 
-@media (max-width: 1024px) {
+.hamburger-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.25s ease;
+}
 
-    .stat-badge,
-    .patinha-bg {
+.hamburger-btn:hover {
+    color: #ff8c00;
+}
+
+@media (max-width: 1024px) {
+    .stat-badge {
         display: none;
+    }
+
+    .patinha-bg {
+        display: block;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 24px;
+    }
+
+    .cat-left {
+        left: -100px;
+        display: none;
+    }
+
+    .cat-right {
+        right: -100px;
+        display: none;
+    }
+
+    .hero-card h2 {
+        font-size: 3.5rem;
+    }
+
+    .sobre,
+    .adocao,
+    .contato {
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger-btn {
+        display: block;
+        order: 1;
+    }
+
+    .logo {
+        order: 2;
+    }
+
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-menu-wrapper {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        width: 280px;
+        height: 100vh;
+        background-color: rgba(150, 209, 250, 0.98);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 100px 30px 40px 30px;
+        gap: 32px;
+        box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.15);
+        transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        z-index: 101;
+    }
+
+    .nav-menu-wrapper.active {
+        transform: translateX(280px);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .nav-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .header {
+        height: 88px;
+        padding: 0;
+    }
+
+    .nav-links a {
+        font-size: 26px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        font-size: 22px;
+        padding: 8px 20px;
+    }
+
+    .hero-container {
+        min-height: auto;
+        padding: 140px 16px 60px 16px;
+    }
+
+    .hero-card-wrapper {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .hero-card {
+        padding: 40px 20px;
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .hero-card h2 {
+        font-size: 2.8rem;
+    }
+
+    .cat-left,
+    .cat-right {
+        display: none;
+    }
+
+    .dog-top {
+        height: 140px;
+        top: -90px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        gap: 12px;
+    }
+
+    .btn-hero {
+        justify-content: center;
+        width: 100%;
+        font-size: 24px;
+        padding: 10px 20px;
+    }
+
+    .sobre-header h2,
+    .adocao-header h2,
+    .contato-header h2 {
+        font-size: 3.2rem;
+    }
+
+    .sobre-header p,
+    .adocao-header p,
+    .contato-header p {
+        font-size: 1.1rem;
+    }
+
+    .sobre,
+    .adocao,
+    .contato {
+        margin-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .contato-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .rodape-top,
+    .rodape-bottom {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 40px;
+    }
+
+    .hero-card h2 {
+        font-size: 2.2rem;
+    }
+
+    .dog-top {
+        height: 110px;
+        top: -70px;
+    }
+
+    .sobre-header h2,
+    .adocao-header h2,
+    .contato-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .contato-form {
+        padding: 24px 16px;
     }
 }
