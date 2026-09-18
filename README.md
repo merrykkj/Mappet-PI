@@ -1,4 +1,4 @@
-# Mappet-PI
+# Mappet
 
 Projeto Integrador de longo prazo desenvolvido de forma contínua ao longo de todos os semestres (do 1º ao 6º semestre) do curso de Análise e Desenvolvimento de Sistemas da FATEC Ipiranga. O sistema tem como objetivo principal mapear, registrar e buscar animais perdidos ou achados para auxiliar a comunidade local.
 
