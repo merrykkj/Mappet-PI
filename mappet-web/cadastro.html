@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapPet | Cadastro</title>
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Mouse+Memoirs&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="cadastro-container">
+
+        <section class="lado-esquerdo">
+            <div class="brand">
+                <span class="logo-texto">
+                    MAP<span class="logo-destaque">PET</span>
+                </span>
+                <span class="logo-icone">
+                    <i class="fa-solid fa-location-dot"></i>
+                </span>
+            </div>
+
+            <div class="patinha-bg patinha-1 float-slow"><i class="fa-solid fa-paw"></i></div>
+            <div class="patinha-bg patinha-2 float-reverse"><i class="fa-solid fa-paw"></i></div>
+            <div class="patinha-bg patinha-3 float-slow"><i class="fa-solid fa-paw"></i></div>
+            <div class="patinha-bg patinha-4 float-reverse"><i class="fa-solid fa-paw"></i></div>
+            <div class="patinha-bg patinha-5 float-slow"><i class="fa-solid fa-paw"></i></div>
+
+            <img src="assets/images/gato-esquerdo.png" class="pet-gato-esq" alt="Gato esquerdo">
+        </section>
+
+        <section class="centro-formulario">
+            <div class="form-content">
+                
+                <div class="header-cadastro">
+                    <h1 class="titulo-principal">CADASTRE-SE</h1>
+                </div>
+
+                <form class="form-cadastro">
+
+                    <div class="input-group">
+                        <label for="nome">Nome</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="nome" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="email" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row trio">
+                        <div class="input-group">
+                            <label for="telefone">Telefone</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="telefone" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="cidade">Cidade</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="cidade" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="uf">UF</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="uf" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row dupla">
+                        <div class="input-group">
+                            <label for="senha">Senha</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="senha" placeholder="" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="confirma-senha">Confirmar Senha</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="confirma-senha" placeholder="" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="como-conheceu">Como nos conheceu</label>
+                        <div class="input-wrapper">
+                            <select id="como-conheceu">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="redes-sociais">Redes Sociais</option>
+                                <option value="indicacao">Indicação de Amigos</option>
+                                <option value="google">Pesquisa no Google</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-cadastrar">
+                        CADASTRAR
+                    </button>
+
+                </form>
+
+            </div>
+        </section>
+
+        <section class="lado-direito">
+            <div class="patinha-bg patinha-dir-1 float-slow"><i class="fa-solid fa-paw"></i></div>
+            <div class="patinha-bg patinha-dir-2 float-reverse"><i class="fa-solid fa-paw"></i></div>
+            <div class="patinha-bg patinha-dir-3 float-slow"><i class="fa-solid fa-paw"></i></div>
+
+            <img src="assets/images/gato-direito.png" class="pet-gato-dir" alt="Gato direito">
+        </section>
+
+    </main>
+
+</body>
+
+</html>

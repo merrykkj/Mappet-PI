@@ -40,12 +40,24 @@ a {
     min-height: 100vh;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(rgb(74, 129, 167), #96D1FA, rgb(74, 129, 167));
+    background-color: #78add2;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 50px;
 }
+
+.wave {
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 100px;
+    height: 100%;
+    object-fit: fill;
+    z-index: 4;
+    pointer-events: none;
+}
+
 
 .brand {
     position: absolute;
@@ -119,24 +131,12 @@ a {
     position: absolute;
     bottom: -15px;
     left: 0;
-    width: min(58%, 500px);
-    max-height: 70vh;
+    width: min(75%, 600px);
+    max-height: 85vh;
     object-fit: contain;
     object-position: bottom left;
     z-index: 2;
     filter: drop-shadow(0 18px 22px rgba(255, 255, 255, 0.678));
-}
-
-.pet-catndog {
-    position: absolute;
-    bottom: -15px;
-    left: 485px;
-    width: min(58%, 500px);
-    max-height: 40vh;
-    object-fit: contain;
-    object-position: bottom left;
-    z-index: 2;
-    filter: drop-shadow(0 18px 22px rgba(255, 255, 255, 0.619));
 }
 
 .decoracao {
@@ -195,6 +195,7 @@ a {
 }
 
 @keyframes float {
+
     0%,
     100% {
         transform: translateY(0px) rotate(-15deg);
@@ -206,6 +207,7 @@ a {
 }
 
 @keyframes floatReverse {
+
     0%,
     100% {
         transform: translateY(0px) rotate(15deg);
