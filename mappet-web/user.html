@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MapPet | Usuário</title>
+
+    <link rel="stylesheet" href="./css/user.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Mouse+Memoirs&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <div class="usuario-container">
+
+        <aside class="sidebar">
+
+            <div>
+                <div class="brand">
+                    <span class="logo-texto">
+                        MAP<span class="logo-destaque">PET</span>
+                    </span>
+
+                    <span class="logo-icone">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </span>
+                </div>
+
+                <nav class="menu-lateral">
+
+                    <button class="menu-item ativo" data-target="secao-perfil">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </button>
+
+                    <button class="menu-item" data-target="secao-pets">
+                        <i class="fa-solid fa-paw"></i>
+                        <span>Pets</span>
+                    </button>
+
+                    <button class="menu-item" data-target="secao-locais">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>Locais Salvos</span>
+                    </button>
+
+                    <button class="menu-item" data-target="secao-config">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Configurações</span>
+                    </button>
+
+                </nav>
+            </div>
+
+            <div class="menu-footer">
+
+                <a href="index.html" class="btn-sair">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Sair</span>
+                </a>
+
+            </div>
+
+        </aside>
+
+        <main class="conteudo-principal">
+
+            <header class="topo-dashboard">
+
+                <button class="btn-recolher-menu">
+                    <i class="fa-solid fa-angles-left"></i>
+                </button>
+
+                <div class="barra-pesquisa">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        placeholder="Buscar por raça, local..."
+                    >
+                </div>
+
+                <div class="acoes-topo-direito">
+
+                    <button class="btn-icone-notif">
+                        <i class="fa-solid fa-bell"></i>
+                    </button>
+
+                    <a href="#" class="btn-cadastrar-animal">
+                        <i class="fa-solid fa-plus"></i>
+                        Cadastrar animal
+                    </a>
+
+                    <div class="icone-perfil-topo">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <section id="secao-perfil" class="painel-secao ativo">
+
+                <div class="alerta-urgente">
+
+                    <div class="alerta-info">
+
+                        <div class="icone-alerta">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+
+                        <div>
+                            <h4>
+                                3 animais em situação de urgência na sua região
+                            </h4>
+
+                            <p>
+                                Medicação controlada ou risco de vida – ajude compartilhando!
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <button class="btn-ver-urgentes">
+                        VER URGENTES
+                    </button>
+
+                </div>
+
+
+                <div class="cards-resumo">
+
+                    <div class="card-stat">
+                        <div class="info-card">
+                            <span class="card-titulo">
+                                Perdidos hoje
+                            </span>
+
+                            <h3 class="cor-azul">
+                                14
+                            </h3>
+
+                            <p class="card-sub">
+                                +3 nas últimas 2h
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="card-stat">
+                        <div class="info-card">
+                            <span class="card-titulo">
+                                Avistamentos
+                            </span>
+
+                            <h3 class="cor-laranja">
+                                38
+                            </h3>
+
+                            <p class="card-sub">
+                                na sua região
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="card-stat">
+                        <div class="info-card">
+                            <span class="card-titulo">
+                                Urgentes
+                            </span>
+
+                            <h3 class="cor-vermelho">
+                                3
+                            </h3>
+
+                            <p class="card-sub">
+                                requerem atenção
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="card-stat">
+                        <div class="info-card">
+                            <span class="card-titulo">
+                                Reencontrados
+                            </span>
+
+                            <h3 class="cor-verde">
+                                127
+                            </h3>
+
+                            <p class="card-sub">
+                                este mês
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="secao-publicacoes">
+
+                    <div class="publicacoes-header">
+
+                        <div>
+                            <h2>
+                                Minhas publicações
+                            </h2>
+
+                            <p class="subtitulo-publicacoes">
+                                Animais que você publicou no MapPet
+                            </p>
+                        </div>
+
+                        <div class="filtros-publicacoes">
+
+                            <button class="filtro-btn ativo">
+                                Todos
+                            </button>
+
+                            <button class="filtro-btn">
+                                Perdidos
+                            </button>
+
+                            <button class="filtro-btn">
+                                Encontrados
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="grid-cards-pets">
+
+
+                        <div class="card-pet">
+
+                            <div class="card-pet-img">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80"
+                                    alt="Mingau"
+                                >
+
+                                <span class="status-pet">
+                                    Publicado
+                                </span>
+
+                            </div>
+
+
+                            <div class="card-pet-body">
+
+                                <h3>
+                                    Mingau
+                                </h3>
+
+
+                                <div class="tags-pet">
+
+                                    <span class="tag azul">
+                                        <i class="fa-solid fa-cat"></i>
+                                        Gato
+                                    </span>
+
+                                    <span class="tag azul">
+                                        <i class="fa-solid fa-calendar"></i>
+                                        2 anos
+                                    </span>
+
+                                </div>
+
+
+                                <p class="descricao-pet">
+                                    Meu gato desapareceu próximo à região da Consolação.
+                                    Ele é dócil e costuma responder pelo nome.
+                                </p>
+
+
+                                <div class="rodape-card-pet">
+
+                                    <span class="local-pet">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        Consolação, SP
+                                    </span>
+
+                                    <span class="tempo-pet">
+                                        Há 5h
+                                    </span>
+
+                                </div>
+
+
+                                <div class="acoes-card-pet">
+
+                                    <button class="btn-editar">
+                                        <i class="fa-solid fa-pen"></i>
+                                        Editar informações
+                                    </button>
+
+                                    <button class="btn-excluir">
+                                        <i class="fa-solid fa-trash"></i>
+                                        Excluir
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-pet">
+
+                            <div class="card-pet-img">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80"
+                                    alt="Lucky"
+                                >
+
+                                <span class="status-pet">
+                                    Publicado
+                                </span>
+
+                            </div>
+
+
+                            <div class="card-pet-body">
+
+                                <h3>
+                                    Lucky
+                                </h3>
+
+
+                                <div class="tags-pet">
+
+                                    <span class="tag azul">
+                                        <i class="fa-solid fa-dog"></i>
+                                        Cachorro
+                                    </span>
+
+                                    <span class="tag azul">
+                                        <i class="fa-solid fa-calendar"></i>
+                                        3 anos
+                                    </span>
+
+                                </div>
+
+
+                                <p class="descricao-pet">
+                                    Lucky desapareceu próximo ao Sacomã.
+                                    Ele é dócil, brincalhão e está acostumado com pessoas.
+                                </p>
+
+
+                                <div class="rodape-card-pet">
+
+                                    <span class="local-pet">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        Sacomã, SP
+                                    </span>
+
+                                    <span class="tempo-pet">
+                                        Há 9h
+                                    </span>
+
+                                </div>
+
+
+                                <div class="acoes-card-pet">
+
+                                    <button class="btn-editar">
+                                        <i class="fa-solid fa-pen"></i>
+                                        Editar informações
+                                    </button>
+
+                                    <button class="btn-excluir">
+                                        <i class="fa-solid fa-trash"></i>
+                                        Excluir
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-pet">
+
+                            <div class="card-pet-img">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80"
+                                    alt="Luna"
+                                >
+
+                                <span class="status-pet">
+                                    Publicado
+                                </span>
+
+                            </div>
+
+
+                            <div class="card-pet-body">
+
+                                <h3>
+                                    Luna
+                                </h3>
+
+
+                                <div class="tags-pet">
+
+                                    <span class="tag azul">
+                                        <i class="fa-solid fa-dog"></i>
+                                        Cachorro
+                                    </span>
+
+                                    <span class="tag azul">
+                                        <i class="fa-solid fa-calendar"></i>
+                                        1 ano
+                                    </span>
+
+                                </div>
+
+
+                                <p class="descricao-pet">
+                                    Luna desapareceu durante um passeio próximo
+                                    ao parque. Ela é muito dócil e gosta de brincar.
+                                </p>
+
+
+                                <div class="rodape-card-pet">
+
+                                    <span class="local-pet">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        Ipiranga, SP
+                                    </span>
+
+                                    <span class="tempo-pet">
+                                        Há 1 dia
+                                    </span>
+
+                                </div>
+
+
+                                <div class="acoes-card-pet">
+
+                                    <button class="btn-editar">
+                                        <i class="fa-solid fa-pen"></i>
+                                        Editar informações
+                                    </button>
+
+                                    <button class="btn-excluir">
+                                        <i class="fa-solid fa-trash"></i>
+                                        Excluir
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section id="secao-pets" class="painel-secao">
+
+                <div class="card-formulario">
+
+                    <h2>
+                        <i class="fa-solid fa-paw"></i>
+                        Meus Pets
+                    </h2>
+
+                    <p>
+                        Aqui você poderá gerenciar os pets cadastrados na sua conta.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <section id="secao-locais" class="painel-secao">
+
+                <div class="card-formulario">
+
+                    <h2>
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        Locais Salvos
+                    </h2>
+
+                    <p>
+                        Aqui ficarão os locais favoritos ou salvos no mapa.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <section id="secao-config" class="painel-secao">
+
+                <div class="card-formulario">
+
+                    <h2>
+                        <i class="fa-solid fa-gear"></i>
+                        Configurações
+                    </h2>
+
+                    <p>
+                        Altere sua senha e preferências do sistema.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="./js/user.js"></script>
+
+</body>
+
+</html>

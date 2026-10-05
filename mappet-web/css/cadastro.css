@@ -347,6 +347,29 @@ button {
     animation: floatReverse 6s ease-in-out infinite;
 }
 
+.btn-voltar-home {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #8b929a;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: color 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+    text-decoration: none;
+}
+
+.btn-voltar-home i {
+    font-size: 0.9rem;
+}
+
+.btn-voltar-home:hover {
+    color: #6097d0;
+    transform: translateX(-3px);
+}
 
 @media (max-width: 900px) {
 
