@@ -16,52 +16,38 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Mouse+Memoirs&family=Nunito:wght@400;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <style>
-        /* Estilo rápido injetado para centralizar o formulário perfeitamente na tela */
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .login-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .lado-direito {
-            width: 100%;
-            max-width: 480px; /* Ajuste a largura máxima conforme preferir */
-            margin: 0 auto;
-            position: relative;
-        }
-    </style>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
     <main class="login-container">
-        
+
         <section class="lado-direito">
-            <a href="index.html" class="btn-voltar-home" aria-label="Voltar para a Home">
+
+            <a
+                href="index.html"
+                class="btn-voltar-home"
+                aria-label="Voltar para a Home">
+
                 <i class="fa-solid fa-arrow-left"></i>
+
                 <span>Voltar</span>
+
             </a>
-            
+
             <div class="login-content">
-                
+
                 <div class="header-login">
-                    
+
                     <div class="patinhas-decorativas">
                         <i class="fa-solid fa-paw paw-1"></i>
                         <i class="fa-solid fa-paw paw-2"></i>
                         <i class="fa-solid fa-paw paw-3"></i>
                     </div>
-                    
+
                     <span class="pequeno-titulo">
                         ÁREA DO USUÁRIO
                     </span>
@@ -76,7 +62,6 @@
 
                 </div>
 
-
                 <form class="form-login">
 
                     <div class="input-group">
@@ -89,13 +74,16 @@
 
                             <i class="fa-regular fa-envelope icone-input"></i>
 
-                            <input type="email" id="email" placeholder="Digite seu e-mail" autocomplete="email"
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Digite seu e-mail"
+                                autocomplete="email"
                                 required>
 
                         </div>
 
                     </div>
-
 
                     <div class="input-group">
 
@@ -107,37 +95,60 @@
 
                             <i class="fa-solid fa-lock icone-input"></i>
 
-                            <input type="password" id="senha" placeholder="Digite sua senha"
-                                autocomplete="current-password" required>
+                            <input
+                                type="password"
+                                id="senha"
+                                placeholder="Digite sua senha"
+                                autocomplete="current-password"
+                                required>
 
-                            <button type="button" class="mostrar-senha" aria-label="Mostrar senha">
+                            <button
+                                type="button"
+                                class="mostrar-senha"
+                                aria-label="Mostrar senha">
+
                                 <i class="fa-regular fa-eye"></i>
+
                             </button>
 
                         </div>
 
                     </div>
 
-
                     <div class="opcoes-login">
 
                         <label class="lembrar-me">
-                            <input type="checkbox">
-                            <span>Lembrar de mim</span>
+
+                            <input
+                                type="checkbox"
+                                id="lembrar-me">
+
+                            <span>
+                                Lembrar de mim
+                            </span>
+
                         </label>
 
-                        <a href="#">
+                        <a href="#" id="esqueci-senha">
                             Esqueci a senha
                         </a>
 
                     </div>
 
+                    <button
+                        type="submit"
+                        class="btn-entrar">
 
-                    <a href="./user.html" class="btn-entrar">
                         ENTRAR
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
 
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                    <p
+                        class="mensagem-login"
+                        aria-live="polite">
+                    </p>
 
                     <div class="cadastro">
 
@@ -159,6 +170,8 @@
 
     </main>
 
+    <script src="./js/storage.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 
 </html>

@@ -1,140 +1,300 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>MapPet | Cadastro</title>
+
     <link rel="stylesheet" href="./css/cadastro.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Mouse+Memoirs&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="./css/user.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Mouse+Memoirs&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
     <main class="cadastro-container">
 
-        <section class="lado-esquerdo">
-            <div class="brand">
-                <span class="logo-texto">
-                    MAP<span class="logo-destaque">PET</span>
-                </span>
-                <span class="logo-icone">
-                    <i class="fa-solid fa-location-dot"></i>
-                </span>
+        <a href="./index.html" class="btn-voltar-home">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Voltar</span>
+        </a>
+
+        <div class="brand">
+            <span class="logo-texto">
+                MAP<span class="logo-destaque">PET</span>
+            </span>
+
+            <span class="logo-icone">
+                <i class="fa-solid fa-location-dot"></i>
+            </span>
+        </div>
+
+        <div class="decoracao decoracao-esquerda">
+
+            <div class="circulo-decorativo circulo-esquerdo"></div>
+
+            <div class="patinha-bg patinha-1">
+                <i class="fa-solid fa-paw"></i>
             </div>
 
-            <div class="patinha-bg patinha-1 float-slow"><i class="fa-solid fa-paw"></i></div>
-            <div class="patinha-bg patinha-2 float-reverse"><i class="fa-solid fa-paw"></i></div>
-            <div class="patinha-bg patinha-3 float-slow"><i class="fa-solid fa-paw"></i></div>
-            <div class="patinha-bg patinha-4 float-reverse"><i class="fa-solid fa-paw"></i></div>
-            <div class="patinha-bg patinha-5 float-slow"><i class="fa-solid fa-paw"></i></div>
+            <div class="patinha-bg patinha-2">
+                <i class="fa-solid fa-paw"></i>
+            </div>
 
-            <img src="assets/images/gato-esquerdo.png" class="pet-gato-esq" alt="Gato esquerdo">
-        </section>
+            <div class="patinha-bg patinha-3">
+                <i class="fa-solid fa-paw"></i>
+            </div>
+
+            <img
+                src="./assets/images/gato-esquerdo.png"
+                class="pet-gato-esq"
+                alt="Gato esquerdo">
+
+        </div>
 
         <section class="centro-formulario">
 
-            <a href="index.html" class="btn-voltar-home" aria-label="Voltar para a Home">
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Voltar</span>
-            </a>
             <div class="form-content">
-                
-                
+
                 <div class="header-cadastro">
-                    <h1 class="titulo-principal">CADASTRE-SE</h1>
+
+                    <div class="patinhas-decorativas">
+                        <i class="fa-solid fa-paw paw-1"></i>
+                        <i class="fa-solid fa-paw paw-2"></i>
+                        <i class="fa-solid fa-paw paw-3"></i>
+                    </div>
+
+                    <span class="pequeno-titulo">
+                        FAÇA PARTE DO MAP PET
+                    </span>
+
+                    <h1 class="titulo-principal">
+                        CADASTRE-SE
+                    </h1>
+
+                    <p class="subtitulo">
+                        Crie sua conta e faça parte dessa rede de carinho!
+                    </p>
+
                 </div>
 
                 <form class="form-cadastro">
 
                     <div class="input-group">
+
                         <label for="nome">Nome</label>
+
                         <div class="input-wrapper">
-                            <input type="text" id="nome" placeholder="" required>
+                            <i class="fa-regular fa-user icone-input"></i>
+
+                            <input
+                                type="text"
+                                id="nome"
+                                placeholder="Digite seu nome"
+                                autocomplete="name"
+                                required>
                         </div>
+
                     </div>
 
                     <div class="input-group">
+
                         <label for="email">E-mail</label>
+
                         <div class="input-wrapper">
-                            <input type="email" id="email" placeholder="" required>
+                            <i class="fa-regular fa-envelope icone-input"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Digite seu e-mail"
+                                autocomplete="email"
+                                required>
                         </div>
+
                     </div>
 
                     <div class="form-row trio">
+
                         <div class="input-group">
+
                             <label for="telefone">Telefone</label>
+
                             <div class="input-wrapper">
-                                <input type="text" id="telefone" placeholder="">
+                                <i class="fa-solid fa-phone icone-input"></i>
+
+                                <input
+                                    type="text"
+                                    id="telefone"
+                                    placeholder="Telefone"
+                                    autocomplete="tel">
                             </div>
+
                         </div>
 
                         <div class="input-group">
+
                             <label for="cidade">Cidade</label>
+
                             <div class="input-wrapper">
-                                <input type="text" id="cidade" placeholder="">
+                                <i class="fa-solid fa-city icone-input"></i>
+
+                                <input
+                                    type="text"
+                                    id="cidade"
+                                    placeholder="Cidade"
+                                    autocomplete="address-level2">
                             </div>
+
                         </div>
 
                         <div class="input-group">
+
                             <label for="uf">UF</label>
+
                             <div class="input-wrapper">
-                                <input type="text" id="uf" placeholder="">
+
+                                <input
+                                    type="text"
+                                    id="uf"
+                                    placeholder="UF"
+                                    maxlength="2"
+                                    autocomplete="address-level1">
                             </div>
+
                         </div>
+
                     </div>
 
                     <div class="form-row dupla">
+
                         <div class="input-group">
+
                             <label for="senha">Senha</label>
+
                             <div class="input-wrapper">
-                                <input type="password" id="senha" placeholder="" required>
+                                <i class="fa-solid fa-lock icone-input"></i>
+
+                                <input
+                                    type="password"
+                                    id="senha"
+                                    placeholder="Digite sua senha"
+                                    autocomplete="new-password"
+                                    required>
                             </div>
+
                         </div>
 
                         <div class="input-group">
-                            <label for="confirma-senha">Confirmar Senha</label>
+
+                            <label for="confirma-senha">
+                                Confirmar Senha
+                            </label>
+
                             <div class="input-wrapper">
-                                <input type="password" id="confirma-senha" placeholder="" required>
+                                <i class="fa-solid fa-lock icone-input"></i>
+
+                                <input
+                                    type="password"
+                                    id="confirma-senha"
+                                    placeholder="Confirme sua senha"
+                                    autocomplete="new-password"
+                                    required>
                             </div>
+
                         </div>
+
                     </div>
 
                     <div class="input-group">
-                        <label for="como-conheceu">Como nos conheceu</label>
+
+                        <label for="como-conheceu">
+                            Como nos conheceu
+                        </label>
+
                         <div class="input-wrapper">
+                            <i class="fa-solid fa-heart icone-input"></i>
+
                             <select id="como-conheceu">
-                                <option value="" disabled selected>Selecione</option>
-                                <option value="redes-sociais">Redes Sociais</option>
-                                <option value="indicacao">Indicação de Amigos</option>
-                                <option value="google">Pesquisa no Google</option>
-                                <option value="outro">Outro</option>
+                                <option value="" disabled selected>
+                                    Selecione
+                                </option>
+
+                                <option value="redes-sociais">
+                                    Redes Sociais
+                                </option>
+
+                                <option value="indicacao">
+                                    Indicação de Amigos
+                                </option>
+
+                                <option value="google">
+                                    Pesquisa no Google
+                                </option>
+
+                                <option value="outro">
+                                    Outro
+                                </option>
                             </select>
                         </div>
+
                     </div>
 
                     <button type="submit" class="btn-cadastrar">
                         CADASTRAR
+                        <i class="fa-solid fa-arrow-right"></i>
                     </button>
+
+                    <div class="login-link">
+                        <span>Já possui uma conta?</span>
+                        <a href="./login.html">Faça login</a>
+                    </div>
 
                 </form>
 
             </div>
+
         </section>
 
-        <section class="lado-direito">
-            <div class="patinha-bg patinha-dir-1 float-slow"><i class="fa-solid fa-paw"></i></div>
-            <div class="patinha-bg patinha-dir-2 float-reverse"><i class="fa-solid fa-paw"></i></div>
-            <div class="patinha-bg patinha-dir-3 float-slow"><i class="fa-solid fa-paw"></i></div>
+        <div class="decoracao decoracao-direita">
 
-            <img src="assets/images/gato-direito.png" class="pet-gato-dir" alt="Gato direito">
-        </section>
+            <div class="circulo-decorativo circulo-direito"></div>
+
+            <div class="patinha-bg patinha-dir-1">
+                <i class="fa-solid fa-paw"></i>
+            </div>
+
+            <div class="patinha-bg patinha-dir-2">
+                <i class="fa-solid fa-paw"></i>
+            </div>
+
+            <div class="patinha-bg patinha-dir-3">
+                <i class="fa-solid fa-paw"></i>
+            </div>
+
+            <img
+                src="./assets/images/gato-direito.png"
+                class="pet-gato-dir"
+                alt="Gato direito">
+
+        </div>
 
     </main>
+
+    <script src="./js/storage.js"></script>
+    <script src="./js/cadastro.js"></script>
 
 </body>
 

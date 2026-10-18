@@ -12,7 +12,7 @@ body {
 
 body {
     font-family: 'Nunito', sans-serif;
-    background-color: #f5f8fc;
+    background-color: #ffffff;
     color: #333;
 }
 
@@ -30,13 +30,14 @@ a {
 }
 
 .login-container {
-    min-height: 100vh;
-    display: flex;
     width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff;
+    display: flex;
 }
 
 .lado-direito {
-    width: 52%;
+    width: 100%;
     min-height: 100vh;
     background-color: #ffffff;
     display: flex;
@@ -61,7 +62,9 @@ a {
     color: #8b929a;
     font-size: 0.9rem;
     font-weight: 700;
-    transition: color 0.2s ease, transform 0.2s ease;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
     z-index: 10;
 }
 
@@ -90,7 +93,7 @@ a {
 }
 
 .titulo-principal {
-    color: #96D1FA;
+    color: #96d1fa;
     font-family: 'Mouse Memoirs', sans-serif;
     font-size: clamp(4.5rem, 7vw, 6.5rem);
     font-weight: 400;
@@ -157,14 +160,17 @@ input[type="email"],
 input[type="password"] {
     width: 100%;
     height: 58px;
-    padding: 0 50px 0 50px;
+    padding: 0 50px;
     border: 1.5px solid #e5eaf0;
     border-radius: 14px;
     background-color: #f8fafc;
     color: #343a40;
     font-size: 0.98rem;
     outline: none;
-    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 input::placeholder {
@@ -280,6 +286,19 @@ input:focus {
     transform: translateY(0);
 }
 
+.mensagem-login {
+    min-height: 20px;
+    margin-top: -7px;
+    color: #e63946;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.mensagem-login.sucesso {
+    color: #2a9d8f;
+}
+
 .cadastro {
     display: flex;
     align-items: center;
@@ -299,26 +318,19 @@ input:focus {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 992px) {
-    .lado-esquerdo {
-        display: none !important;
-    }
-
+@media screen and (max-width: 600px) {
     .lado-direito {
-        width: 100%;
-        min-height: 100vh;
         padding: 40px 24px;
     }
 
-    .login-container {
-        justify-content: center;
-        align-items: center;
+    .login-content {
+        max-width: 440px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .lado-direito {
-        padding: 24px 16px;
+        padding: 70px 16px 30px;
     }
 
     .titulo-principal {

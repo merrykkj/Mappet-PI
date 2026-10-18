@@ -4,12 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>MapPet | Área do Aconchego</title>
+
     <link rel="stylesheet" href="./css/user.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Quicksand:wght@500;600;700&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -18,376 +23,666 @@
     <div class="usuario-container">
 
         <aside class="sidebar">
-            <div>
-                <a href="./index.html" class="logo-link"
-                    style="text-decoration: none; display: inline-flex; align-items: center;">
+
+            <div class="sidebar-conteudo">
+
+                <a href="./index.html" class="logo-link">
                     <div class="brand">
                         <span class="logo-texto">
                             MAP<span class="logo-destaque">PET</span>
                         </span>
+
                         <span class="logo-icone">
-                            <i class="fa-solid fa-paw"></i>
+                            <i class="fa-solid fa-location-dot"></i>
                         </span>
                     </div>
                 </a>
 
-                <nav class="menu-lateral">
+                <div class="perfil-resumo">
+                    <div class="avatar-usuario">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div class="perfil-info">
+                        <span>Olá, <span id="nome-usuario-sidebar">amiguinho</span>!</span>
+                        <strong>Meu cantinho</strong>
+                    </div>
+                </div>
+
+                <nav class="menu-lateral" aria-label="Menu principal">
+
                     <button class="menu-item ativo" data-target="secao-perfil">
-                        <i class="fa-solid fa-house-heart"></i>
+                        <span class="menu-icone">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
                         <span>Meu Perfil</span>
                     </button>
+
                     <button class="menu-item" data-target="secao-pets">
-                        <i class="fa-solid fa-heart-circle-check"></i>
+                        <span class="menu-icone">
+                            <i class="fa-solid fa-heart"></i>
+                        </span>
                         <span>Reencontros</span>
                     </button>
+
                     <button class="menu-item" data-target="secao-cadastro-animal">
-                        <i class="fa-solid fa-circle-plus"></i>
+                        <span class="menu-icone">
+                            <i class="fa-solid fa-paw"></i>
+                        </span>
                         <span>Cadastrar Pet</span>
                     </button>
-                    <button class="menu-item" data-target="secao-locais">
-                        <i class="fa-solid fa-map-pin"></i>
-                        <span>Locais Salvos</span>
-                    </button>
+
                     <button class="menu-item" data-target="secao-config">
-                        <i class="fa-solid fa-gear"></i>
+                        <span class="menu-icone">
+                            <i class="fa-solid fa-gear"></i>
+                        </span>
                         <span>Configurações</span>
                     </button>
+
                 </nav>
+
             </div>
 
             <div class="menu-footer">
-                <a href="index.html" class="btn-sair">
+                <a href="./index.html" class="btn-sair">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span>Sair</span>
                 </a>
             </div>
+
         </aside>
 
         <main class="conteudo-principal">
 
             <header class="topo-dashboard">
-                <button class="btn-recolher-menu">
-                    <i class="fa-solid fa-bars-staggered"></i>
-                </button>
-                <div class="titulo-topo-mobile">
-                    <span>Área do usuário</span>
-                </div>
-                <div class="acoes-topo-direito">
-                    <button class="btn-icone-notif">
-                        <i class="fa-solid fa-bell"></i>
+
+                <div class="topo-esquerda">
+
+                    <button class="btn-recolher-menu" aria-label="Abrir menu">
+                        <i class="fa-solid fa-bars"></i>
                     </button>
-                    <div class="icone-perfil-topo">
-                        <i class="fa-solid fa-user-shield"></i>
+
+                    <div class="titulo-topo">
+                        <span class="mini-titulo">Meu cantinho</span>
+                        <h1>Área do usuário</h1>
                     </div>
+
                 </div>
+
+                <div class="acoes-topo-direito">
+
+                    <button class="btn-icone-notif" aria-label="Notificações">
+                        <i class="fa-regular fa-bell"></i>
+                    </button>
+
+                    <div class="icone-perfil-topo">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                </div>
+
             </header>
 
             <section id="secao-perfil" class="painel-secao ativo">
 
+                <div class="boas-vindas">
+
+                    <div class="boas-vindas-texto">
+                        <span class="eyebrow">
+                            <i class="fa-solid fa-paw"></i>
+                            Seu espaço no MapPet
+                        </span>
+
+                        <h2>Oi, <span id="nome-usuario">amiguinho</span>! Que bom ter você por aqui.</h2>
+
+                        <p>
+                            Aqui você pode cuidar das suas publicações e acompanhar
+                            os reencontros dos bichinhos.
+                        </p>
+                    </div>
+
+                    <div class="boas-vindas-desenho">
+                        <i class="fa-solid fa-heart"></i>
+                        <i class="fa-solid fa-paw"></i>
+                    </div>
+
+                </div>
+
                 <div class="cards-resumo">
-                    <div class="card-stat">
-                        <div class="info-card">
-                            <span class="card-titulo">Perdidos hoje</span>
-                            <h3 class="cor-azul">14</h3>
-                            <p class="card-sub">+3 nas últimas 2h</p>
+
+                    <article class="card-stat card-stat-azul">
+                        <div class="stat-icone">
+                            <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
-                    </div>
-                    <div class="card-stat">
+
                         <div class="info-card">
-                            <span class="card-titulo">Avistamentos</span>
-                            <h3 class="cor-laranja">38</h3>
-                            <p class="card-sub">na sua região</p>
+                            <span class="card-titulo">Meus pets perdidos</span>
+                            <h3>0</h3>
+                            <p class="card-sub">Da sua conta</p>
                         </div>
-                    </div>
-                    <div class="card-stat">
+                    </article>
+
+                    <article class="card-stat card-stat-amarelo">
+                        <div class="stat-icone">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+
                         <div class="info-card">
-                            <span class="card-titulo">Urgentes</span>
-                            <h3 class="cor-vermelho">3</h3>
-                            <p class="card-sub">requerem atenção</p>
+                            <span class="card-titulo">Pets encontrados</span>
+                            <h3>0</h3>
+                            <p class="card-sub">Da sua conta</p>
                         </div>
-                    </div>
-                    <div class="card-stat">
+                    </article>
+
+                    <article class="card-stat card-stat-rosa">
+                        <div class="stat-icone">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+
+                        <div class="info-card">
+                            <span class="card-titulo">Minhas publicações</span>
+                            <h3>0</h3>
+                            <p class="card-sub">Da sua conta</p>
+                        </div>
+                    </article>
+
+                    <article class="card-stat card-stat-verde">
+                        <div class="stat-icone">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+
                         <div class="info-card">
                             <span class="card-titulo">Reencontrados</span>
-                            <h3 class="cor-verde">127</h3>
-                            <p class="card-sub">este mês</p>
+                            <h3>0</h3>
+                            <p class="card-sub">Da sua conta</p>
                         </div>
-                    </div>
+                    </article>
+
                 </div>
 
                 <div class="secao-publicacoes">
+
                     <div class="publicacoes-header">
-                        <div>
-                            <h2>Minhas publicações</h2>
-                            <p class="subtitulo-publicacoes">Acompanhe e edite os bichinhos que você cadastrou no
-                                sistema</p>
+
+                        <div class="titulo-secao">
+
+                            <span class="titulo-decoracao">
+                                <i class="fa-solid fa-paw"></i>
+                            </span>
+
+                            <div>
+                                <h2>Minhas publicações</h2>
+
+                                <p class="subtitulo-publicacoes">
+                                    Os bichinhos que você cadastrou por aqui.
+                                </p>
+                            </div>
+
                         </div>
+
                         <div class="filtros-publicacoes">
-                            <button class="filtro-btn ativo">Todos</button>
-                            <button class="filtro-btn">Perdidos</button>
-                            <button class="filtro-btn">Encontrados</button>
+
+                            <button class="filtro-btn ativo">
+                                Todos
+                            </button>
+
+                            <button class="filtro-btn">
+                                Perdidos
+                            </button>
+
+                            <button class="filtro-btn">
+                                Encontrados
+                            </button>
+
                         </div>
+
                     </div>
 
                     <div class="grid-cards-pets">
-                        <div class="card-pet" data-id="1">
-                            <div class="card-pet-img">
-                                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80"
-                                    alt="Mingau">
-                                <span class="status-pet">Perdido</span>
-                            </div>
-                            <div class="card-pet-body">
-                                <h3 class="card-titulo-pet">Mingau</h3>
-                                <div class="tags-pet">
-                                    <span class="tag azul"><i class="fa-solid fa-cat"></i> Gato</span>
-                                    <span class="tag azul"><i class="fa-solid fa-cake-candles"></i> 2 anos</span>
-                                </div>
-                                <p class="card-desc-pet">Meu gatinho sumiu pertinho da Consolação. Ele é super dengoso e
-                                    responde pelo nome.</p>
-                                <div class="rodape-card-pet">
-                                    <span class="local-pet"><i class="fa-solid fa-location-dot"></i> <span
-                                            class="card-local-pet">Consolação, SP</span></span>
-                                    <span class="tempo-pet">Há 5h</span>
-                                </div>
-                                <div class="acoes-card-pet">
-                                    <button class="btn-editar"><i class="fa-solid fa-pen-fancy"></i> Editar</button>
-                                    <button class="btn-excluir"><i class="fa-solid fa-trash-can"></i> Excluir</button>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="card-pet" data-id="2">
-                            <div class="card-pet-img">
-                                <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80"
-                                    alt="Lucky">
-                                <span class="status-pet">Perdido</span>
-                            </div>
-                            <div class="card-pet-body">
-                                <h3 class="card-titulo-pet">Lucky</h3>
-                                <div class="tags-pet">
-                                    <span class="tag azul"><i class="fa-solid fa-dog"></i> Cachorro</span>
-                                    <span class="tag azul"><i class="fa-solid fa-cake-candles"></i> 3 anos</span>
-                                </div>
-                                <p class="card-desc-pet">O Lucky correu perto do Sacomã. É muito brincalhão e ama
-                                    carinho na barriga.</p>
-                                <div class="rodape-card-pet">
-                                    <span class="local-pet"><i class="fa-solid fa-location-dot"></i> <span
-                                            class="card-local-pet">Sacomã, SP</span></span>
-                                    <span class="tempo-pet">Há 9h</span>
-                                </div>
-                                <div class="acoes-card-pet">
-                                    <button class="btn-editar"><i class="fa-solid fa-pen-fancy"></i> Editar</button>
-                                    <button class="btn-excluir"><i class="fa-solid fa-trash-can"></i> Excluir</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-pet" data-id="3">
-                            <div class="card-pet-img">
-                                <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80"
-                                    alt="Luna">
-                                <span class="status-pet">Encontrado</span>
-                            </div>
-                            <div class="card-pet-body">
-                                <h3 class="card-titulo-pet">Luna</h3>
-                                <div class="tags-pet">
-                                    <span class="tag azul"><i class="fa-solid fa-dog"></i> Cachorro</span>
-                                    <span class="tag azul"><i class="fa-solid fa-cake-candles"></i> 1 ano</span>
-                                </div>
-                                <p class="card-desc-pet">A Luna escapou durante o passeio no parque. É muito dócil com
-                                    todos.</p>
-                                <div class="rodape-card-pet">
-                                    <span class="local-pet"><i class="fa-solid fa-location-dot"></i> <span
-                                            class="card-local-pet">Ipiranga, SP</span></span>
-                                    <span class="tempo-pet">Há 1 dia</span>
-                                </div>
-                                <div class="acoes-card-pet">
-                                    <button class="btn-editar"><i class="fa-solid fa-pen-fancy"></i> Editar</button>
-                                    <button class="btn-excluir"><i class="fa-solid fa-trash-can"></i> Excluir</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+
                 </div>
 
             </section>
 
             <section id="secao-pets" class="painel-secao">
-                <div class="topo-secao-pets">
-                    <div class="barra-pesquisa-pets">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Buscar no seu histórico feliz...">
+
+                <div class="pagina-cabecalho">
+
+                    <div>
+                        <span class="eyebrow">
+                            <i class="fa-solid fa-heart"></i>
+                            Momentos felizes
+                        </span>
+
+                        <h2>Reencontros</h2>
+
+                        <p>
+                            Histórias de bichinhos que conseguiram voltar para casa.
+                        </p>
                     </div>
+
+                    <div class="decoracao-pagina">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                </div>
+
+                <div class="topo-secao-pets">
+
+                    <div class="barra-pesquisa-pets">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" placeholder="Buscar no seu histórico feliz..."
+                            aria-label="Buscar reencontros">
+
+                    </div>
+
                 </div>
 
                 <div class="subsecao-pets-container">
+
                     <div class="publicacoes-header">
-                        <div>
-                            <h2>Histórico de Reencontros Felizes</h2>
-                            <p class="subtitulo-publicacoes">Casos finalizados onde você já conversou com quem encontrou
-                                e o pet voltou para casa sinto e salvo! 🏡✨</p>
+
+                        <div class="titulo-secao">
+
+                            <span class="titulo-decoracao">
+                                <i class="fa-solid fa-heart"></i>
+                            </span>
+
+                            <div>
+
+                                <h2>Histórico de Reencontros</h2>
+
+                                <p class="subtitulo-publicacoes">
+                                    Histórias que terminaram com uma família reunida.
+                                </p>
+
+                            </div>
+
                         </div>
+
                     </div>
 
                     <div class="grid-cards-pets">
-                        <div class="card-pet card-avistado-outro">
-                            <div class="card-pet-img">
-                                <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80"
-                                    alt="Bob">
-                                <span class="status-pet aviso-externo"><i class="fa-solid fa-house-chimney-user"></i>
-                                    Reencontrado!</span>
-                            </div>
-                            <div class="card-pet-body">
-                                <h3>Bob</h3>
-                                <div class="tags-pet">
-                                    <span class="tag verde"><i class="fa-solid fa-face-smile-beam"></i> Finalizado com
-                                        Sucesso</span>
-                                </div>
-                                <p class="descricao-pet">Contato finalizado com a tia Mariana que avistou o Bob na
-                                    praça. Ele já está dormindo na caminha dele de novo!</p>
-                                <div class="rodape-card-pet">
-                                    <span class="local-pet"><i class="fa-solid fa-location-dot"></i> Centro, SP</span>
-                                    <span class="tempo-pet">Resolvido há 3 dias</span>
-                                </div>
-                                <div class="acoes-card-pet">
-                                    <button class="btn-editar btn-sucesso-concluido"
-                                        style="width: 100%; pointer-events: none;"><i class="fa-solid fa-heart"></i>
-                                        História Concluída</button>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
+
                 </div>
+
             </section>
 
-            <section id="secao-cadastro-animal" class="painel-secao">
-                <div class="card-formulario-centralizado">
-                    <div class="cabecalho-form-central">
-                        <h2>
-                            <i class="fa-solid fa-paw"></i>
-                            Cadastrar Animalzinho
-                        </h2>
-                        <p class="subtitulo-publicacoes">Nos conte se o seu amiguinho se perdeu ou se você acolheu um
-                            anjinho na rua.</p>
+            <section id="secao-cadastro-animal" class="painel-secao pagina-cadastro-pet">
+                <div class="pagina-cabecalho">
+                    <div>
+                        <span class="eyebrow"><i class="fa-solid fa-paw"></i> Vamos ajudar um bichinho</span>
+                        <h2>Cadastrar Pet</h2>
+                        <p>Conte para a gente o que aconteceu. Cada informação pode fazer diferença.</p>
                     </div>
+                    <div class="decoracao-pagina"><i class="fa-solid fa-paw"></i></div>
+                </div>
 
+                <div class="cadastro-pagina-conteudo">
+                    <div class="cadastro-introducao">
+                        <span class="titulo-decoracao"><i class="fa-solid fa-heart"></i></span>
+                        <div>
+                            <h2>Vamos começar?</h2>
+                            <p>Escolha a situação do bichinho e preencha os dados abaixo.</p>
+                        </div>
+                    </div>
                     <div class="seletor-tipo-cadastro">
+
                         <button type="button" class="btn-tipo-cadastro ativo" data-tipo="perdido">
-                            <i class="fa-solid fa-triangle-exclamation"></i> Meu Pet Perdido
+
+                            <i class="fa-solid fa-heart-crack"></i>
+
+                            <span>
+                                Meu pet está perdido
+                            </span>
+
                         </button>
+
                         <button type="button" class="btn-tipo-cadastro" data-tipo="encontrado">
-                            <i class="fa-solid fa-hand-holding-heart"></i> Encontrei um Pet
+
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+
+                            <span>
+                                Encontrei um pet
+                            </span>
+
                         </button>
+
                     </div>
 
                     <form id="form-pet-perdido" class="form-cadastro-pet ativo">
+
                         <div class="grupo-input">
-                            <label>Nome do Pet</label>
-                            <input type="text" placeholder="Ex: Mel, Thor...">
+
+                            <label for="nome-pet-perdido">
+                                Nome do Pet
+                            </label>
+
+                            <input id="nome-pet-perdido" type="text" placeholder="Ex: Mel, Thor...">
+
                         </div>
+
                         <div class="grupo-input">
-                            <label>Espécie / Raça</label>
-                            <input type="text" placeholder="Ex: Cachorrinho, Gatinho...">
+
+                            <label for="especie-pet-perdido">
+                                Espécie / Raça
+                            </label>
+
+                            <input id="especie-pet-perdido" type="text" placeholder="Ex: Cachorrinho, Gatinho...">
+
                         </div>
+
                         <div class="grupo-input">
-                            <label>Onde foi visto pela última vez?</label>
-                            <input type="text" placeholder="Ex: Bairro, Rua aconchegante...">
+
+                            <label for="local-pet-perdido">
+                                Onde foi visto pela última vez?
+                            </label>
+
+                            <input id="local-pet-perdido" type="text"
+                                placeholder="Ex: Bairro, rua ou ponto de referência...">
+
                         </div>
+
                         <div class="grupo-input">
-                            <label>Características e Detalhes fofos</label>
-                            <textarea rows="4"
-                                placeholder="Usa coleira colorida, manchinha charmosa no focinho..."></textarea>
+
+                            <label for="detalhes-pet-perdido">
+                                Características e detalhes
+                            </label>
+
+                            <textarea id="detalhes-pet-perdido" rows="4"
+                                placeholder="Conte detalhes que possam ajudar a reconhecer o seu pet..."></textarea>
+
                         </div>
+
                         <button type="submit" class="btn-cadastrar-submit">
-                            <i class="fa-solid fa-paper-plane"></i> Publicar com Amor
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                            Publicar com carinho
+
                         </button>
+
                     </form>
 
                     <form id="form-pet-encontrado" class="form-cadastro-pet">
+
                         <div class="grupo-input">
-                            <label>Foto do Pet Encontrado</label>
+
+                            <label for="foto-pet-encontrado">
+                                Foto do Pet Encontrado
+                            </label>
+
                             <div class="upload-container">
+
                                 <input type="file" id="foto-pet-encontrado" accept="image/*">
+
                                 <label for="foto-pet-encontrado" class="upload-label">
-                                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                                    <span>Clique para enviar uma foto do queridinho</span>
+
+                                    <span class="upload-icone">
+                                        <i class="fa-solid fa-camera"></i>
+                                    </span>
+
+                                    <span>
+                                        Clique para enviar uma foto do queridinho
+                                    </span>
+
                                 </label>
+
                             </div>
+
                         </div>
+
                         <div class="grupo-input">
-                            <label>Como ele se parece?</label>
-                            <input type="text" placeholder="Ex: Pelo branquinho, muito dócil...">
+
+                            <label for="aparencia-pet-encontrado">
+                                Como ele se parece?
+                            </label>
+
+                            <input id="aparencia-pet-encontrado" type="text"
+                                placeholder="Ex: Pelo branquinho, muito dócil...">
+
                         </div>
+
                         <div class="grupo-input">
-                            <label>Onde você o encontrou?</label>
-                            <input type="text" placeholder="Ex: Próximo à pracinha da esquina...">
+
+                            <label for="local-pet-encontrado">
+                                Onde você o encontrou?
+                            </label>
+
+                            <input id="local-pet-encontrado" type="text"
+                                placeholder="Ex: Próximo à pracinha da esquina...">
+
                         </div>
+
                         <div class="grupo-input">
-                            <label>Situação atual</label>
-                            <select>
-                                <option>Acolhido temporariamente com muito carinho comigo</option>
-                                <option>Visto passeando solto (avistamento)</option>
-                                <option>Em clínica veterinária parceira</option>
+
+                            <label for="situacao-pet-encontrado">
+                                Situação atual
+                            </label>
+
+                            <select id="situacao-pet-encontrado">
+
+                                <option>
+                                    Acolhido temporariamente comigo
+                                </option>
+
+                                <option>
+                                    Visto passeando solto (avistamento)
+                                </option>
+
+                                <option>
+                                    Em clínica veterinária parceira
+                                </option>
+
                             </select>
+
                         </div>
+
                         <div class="grupo-input">
-                            <label>Observações carinhosas</label>
-                            <textarea rows="4"
-                                placeholder="Detalhes para ajudar a família a reconhecer logo..."></textarea>
+
+                            <label for="observacoes-pet-encontrado">
+                                Observações
+                            </label>
+
+                            <textarea id="observacoes-pet-encontrado" rows="4"
+                                placeholder="Conte detalhes que possam ajudar a família a reconhecê-lo..."></textarea>
+
                         </div>
+
                         <button type="submit" class="btn-cadastrar-submit">
-                            <i class="fa-solid fa-paper-plane"></i> Publicar Ajuda
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                            Publicar ajuda
+
                         </button>
+
                     </form>
+
                 </div>
             </section>
 
-            <section id="secao-locais" class="painel-secao">
-                <div class="card-formulario">
-                    <h2><i class="fa-solid fa-map-pin"></i> Locais Salvos</h2>
-                    <p>Seus parquinhos e lugares favoritos salvos com carinho.</p>
-                </div>
-            </section>
 
             <section id="secao-config" class="painel-secao">
-                <div class="card-formulario">
-                    <h2><i class="fa-solid fa-gear"></i> Configurações</h2>
-                    <p>Personalize suas notificações e preferências da conta.</p>
+
+                <div class="pagina-cabecalho">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            <i class="fa-solid fa-gear"></i>
+                            Tudo do seu jeitinho
+                        </span>
+
+                        <h2>Configurações</h2>
+
+                        <p>
+                            Personalize suas notificações e preferências da conta.
+                        </p>
+
+                    </div>
+
+                    <div class="decoracao-pagina decoracao-config">
+                        <i class="fa-solid fa-gear"></i>
+                    </div>
+
                 </div>
+
+                <div class="card-formulario">
+
+                    <div class="config-item">
+
+                        <div class="config-icone">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+
+                        <div>
+                            <h3>Notificações</h3>
+                            <p>
+                                Receba novidades sobre suas publicações.
+                            </p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+
+                    </div>
+
+                    <div class="config-item">
+
+                        <div class="config-icone">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+
+                        <div>
+                            <h3>Atualizações por e-mail</h3>
+                            <p>
+                                Receba informações importantes da sua conta.
+                            </p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+
+                    </div>
+
+                    <div class="config-item">
+
+                        <div class="config-icone">
+                            <i class="fa-solid fa-shield-heart"></i>
+                        </div>
+
+                        <div>
+                            <h3>Privacidade</h3>
+                            <p>
+                                Seus dados são utilizados apenas para o funcionamento do MapPet.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </section>
 
         </main>
+
     </div>
 
-    <!-- MODAL DE EDIÇÃO DA PUBLICAÇÃO -->
     <div id="modal-edicao" class="modal-overlay">
+
         <div class="modal-container">
+
             <div class="modal-header">
-                <h3><i class="fa-solid fa-pen-to-square"></i> Editar Publicação</h3>
-                <button class="btn-fechar-modal"><i class="fa-solid fa-xmark"></i></button>
+
+                <div class="modal-titulo">
+
+                    <span class="modal-icone">
+                        <i class="fa-solid fa-pen"></i>
+                    </span>
+
+                    <div>
+                        <span>Seu pet</span>
+                        <h3>Editar publicação</h3>
+                    </div>
+
+                </div>
+
+                <button class="btn-fechar-modal" aria-label="Fechar edição">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
             </div>
+
             <div class="modal-body">
+
                 <input type="hidden" id="modal-card-id">
+
                 <div class="grupo-input">
-                    <label>Nome do Pet</label>
+
+                    <label for="modal-input-titulo">
+                        Nome do Pet
+                    </label>
+
                     <input type="text" id="modal-input-titulo">
+
                 </div>
+
                 <div class="grupo-input">
-                    <label>Localização / Bairro</label>
+
+                    <label for="modal-input-local">
+                        Localização / Bairro
+                    </label>
+
                     <input type="text" id="modal-input-local">
+
                 </div>
+
                 <div class="grupo-input">
-                    <label>Descrição e Detalhes</label>
+
+                    <label for="modal-textarea-desc">
+                        Descrição e detalhes
+                    </label>
+
                     <textarea id="modal-textarea-desc" rows="4"></textarea>
+
                 </div>
+
             </div>
+
             <div class="modal-footer">
-                <button class="btn-cancelar-modal">Cancelar</button>
-                <button class="btn-salvar-modal"><i class="fa-solid fa-check"></i> Salvar Alterações</button>
+
+                <button class="btn-cancelar-modal">
+                    Cancelar
+                </button>
+
+                <button class="btn-salvar-modal">
+
+                    <i class="fa-solid fa-check"></i>
+
+                    Salvar alterações
+
+                </button>
+
             </div>
+
         </div>
+
     </div>
 
+    <script src="./js/storage.js"></script>
     <script src="./js/user.js"></script>
 </body>
 
