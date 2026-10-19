@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MapPet | Adoção</title>
+
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/adocao.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="./js/storage.js" defer></script>
+    <script src="./js/index.js" defer></script>
+    <script src="./js/adocao.js" defer></script>
+</head>
+
+<body>
+
+    <div class="menu-overlay"></div>
+
+    <header class="header">
+        <nav class="nav-container">
+
+            <a href="./index.html" class="brand brand-adocao">
+                <span class="logo-texto">
+                    MAP<span class="logo-destaque">PET</span>
+                </span>
+
+                <span class="logo-icone">
+                    <i class="fa-solid fa-location-dot"></i>
+                </span>
+            </a>
+
+            <button class="hamburger-btn" type="button" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="nav-menu-wrapper">
+                <ul class="nav-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./index.html#sobre">Sobre</a></li>
+                    <li><a href="./adocao.html">Adoção</a></li>
+                    <li><a href="./index.html#contato">Contato</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="./login.html" class="btn btn-login">LOGIN</a>
+                    <a href="./cadastro.html" class="btn btn-cadastro">CADASTRE-SE</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="pagina-adocao">
+
+        <section class="adocao-apresentacao">
+            <div class="apresentacao-conteudo">
+
+                <i class="fa-solid fa-paw decoracao-pata pata-um"></i>
+                <i class="fa-solid fa-paw decoracao-pata pata-dois"></i>
+                <i class="fa-solid fa-paw decoracao-pata pata-tres"></i>
+
+                <div class="apresentacao-texto">
+                    <span class="etiqueta-apresentacao">
+                        <i class="fa-solid fa-heart"></i>
+                        Adoção responsável
+                    </span>
+
+                    <h1>
+                        Seu novo melhor amigo
+                        <span>está esperando por você!</span>
+                    </h1>
+
+                    <p>
+                        Existem muitas patinhas esperando uma segunda chance.
+                        Encontre um companheiro especial e transforme uma vida
+                        através da adoção.
+                    </p>
+
+                    <a href="#encontrar-pet" class="botao-encontrar">
+                        Encontrar um amigo
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                </div>
+
+                <div class="apresentacao-imagens">
+                    <div class="circulo-imagem"></div>
+
+                    <img
+                        src=""
+                        alt="Cachorrinho"
+                        class="imagem-cachorro"
+                    >
+
+                    <img
+                        src=""
+                        alt="Gatinho"
+                        class="imagem-gato"
+                    >
+
+                    <span class="coracao-decorativo">
+                        <i class="fa-solid fa-heart"></i>
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="onda-apresentacao">
+                <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0,35 C240,105 480,5 720,50 C960,100 1200,15 1440,55 L1440,100 L0,100 Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <section class="secao-encontrar" id="encontrar-pet">
+            <div class="adocao-container-pagina">
+
+                <div class="cabecalho-adocao">
+                    <span class="titulo-etiqueta">
+                        <i class="fa-solid fa-paw"></i>
+                        CONHEÇA NOSSOS AMIGUINHOS
+                    </span>
+
+                    <h2>Procurando um <span>Novo Amigo</span>?</h2>
+
+                    <p>
+                        Cada pet tem uma história especial. Descubra quem está
+                        esperando para fazer parte da sua família.
+                    </p>
+                </div>
+
+                <div class="filtros-painel">
+                    <div class="filtros-titulo">
+                        <div>
+                            <h3>
+                                <i class="fa-solid fa-sliders"></i>
+                                Encontre seu companheiro
+                            </h3>
+                            <p>Personalize sua busca usando os filtros abaixo.</p>
+                        </div>
+
+                        <button type="button" id="limparFiltros" class="botao-limpar">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            Limpar filtros
+                        </button>
+                    </div>
+
+                    <form id="formFiltros" class="filtros-grid">
+
+                        <div class="filtro-campo filtro-busca">
+                            <label for="busca">Nome do pet</label>
+                            <div class="campo-com-icone">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input
+                                    type="search"
+                                    id="busca"
+                                    placeholder="Quem você procura?"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="filtro-campo">
+                            <label for="especie">Espécie</label>
+                            <select id="especie">
+                                <option value="">Todas</option>
+                                <option value="Cachorro">Cachorros</option>
+                                <option value="Gato">Gatos</option>
+                            </select>
+                        </div>
+
+                        <div class="filtro-campo">
+                            <label for="cidade">Cidade</label>
+                            <select id="cidade">
+                                <option value="">Todas as cidades</option>
+                            </select>
+                        </div>
+
+                        <div class="filtro-campo">
+                            <label for="bairro">Bairro</label>
+                            <select id="bairro">
+                                <option value="">Todos os bairros</option>
+                            </select>
+                        </div>
+
+                        <div class="filtro-campo">
+                            <label for="cor">Cor</label>
+                            <select id="cor">
+                                <option value="">Todas as cores</option>
+                            </select>
+                        </div>
+
+                        <div class="filtro-campo">
+                            <label for="porte">Porte</label>
+                            <select id="porte">
+                                <option value="">Todos os portes</option>
+                                <option value="Pequeno">Pequeno</option>
+                                <option value="Médio">Médio</option>
+                                <option value="Grande">Grande</option>
+                            </select>
+                        </div>
+
+                        <div class="filtro-campo">
+                            <label for="sexo">Sexo</label>
+                            <select id="sexo">
+                                <option value="">Todos</option>
+                                <option value="Macho">Macho</option>
+                                <option value="Fêmea">Fêmea</option>
+                            </select>
+                        </div>
+
+                        <div class="filtro-campo">
+                            <label for="idade">Faixa etária</label>
+                            <select id="idade">
+                                <option value="">Todas as idades</option>
+                                <option value="Filhote">Filhote</option>
+                                <option value="Adulto">Adulto</option>
+                                <option value="Idoso">Idoso</option>
+                            </select>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="resultados-cabecalho">
+                    <div>
+                        <h3>Patinhas esperando por um lar</h3>
+                        <p>
+                            <span id="totalAnimais">0</span>
+                            amiguinhos encontrados
+                        </p>
+                    </div>
+
+                    <div class="ordenacao-container">
+                        <label for="ordenacao">Ordenar por:</label>
+
+                        <select id="ordenacao">
+                            <option value="recentes">Mais recentes</option>
+                            <option value="nome">Nome A-Z</option>
+                            <option value="idade">Menor idade</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filtros-ativos" id="filtrosAtivos"></div>
+
+                <div class="adocao-cards" id="gridAnimais"></div>
+
+                <div class="sem-resultados" id="semResultados" hidden>
+                    <div class="sem-resultados-icone">
+                        <i class="fa-solid fa-paw"></i>
+                    </div>
+
+                    <h3>Nenhum amiguinho encontrado!</h3>
+                    <p>
+                        Que tal experimentar outros filtros?
+                        Seu novo companheiro pode estar por aqui.
+                    </p>
+
+                    <button type="button" id="limparSemResultados">
+                        Ver todos os pets
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="adocao-mensagem">
+            <div class="mensagem-conteudo">
+                <div class="mensagem-icone">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <h2>O amor não se compra, <span>se adota!</span></h2>
+
+                <p>
+                    Adotar é oferecer uma nova oportunidade para um animal
+                    que só precisa de carinho, cuidado e um lugar para chamar de lar.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="modal-fundo" id="modalFundo" hidden>
+        <div class="modal-adocao" role="dialog" aria-modal="true" aria-labelledby="modalNome">
+            <button type="button" class="fechar-modal" id="fecharModal" aria-label="Fechar detalhes">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="modalConteudo"></div>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <div class="rodape-conteudo">
+
+            <div class="rodape-top">
+                <div class="rodape-brand">
+                    <h2>Map<span>Pet</span></h2>
+                </div>
+            </div>
+
+            <div class="rodape-bottom">
+                <p class="rodape-texto">
+                    &copy; 2026 Todos os direitos reservados.
+                </p>
+
+                <div class="rodape-redes">
+                    <a href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

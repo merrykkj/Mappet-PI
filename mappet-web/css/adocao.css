@@ -1,0 +1,914 @@
+
+:root {
+    --azul-principal: #96d1fa;
+    --azul-secundario: #78add2;
+    --azul-escuro: #285675;
+    --azul-claro: #eaf6ff;
+    --laranja: #ff8c00;
+    --laranja-hover: #ed8100;
+    --branco: #ffffff;
+    --texto: #344e63;
+    --texto-suave: #71889a;
+    --sombra: 0 10px 30px rgba(43, 93, 131, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--azul-principal);
+}
+
+button,
+input,
+select {
+    font-family: "Nunito", sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.brand-adocao {
+    text-decoration: none;
+}
+
+.pagina-ativa {
+    color: var(--laranja) !important;
+}
+
+.pagina-adocao {
+    padding-top: 88px;
+}
+
+.adocao-apresentacao {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #96d1fa 0%, #b9e3ff 100%);
+}
+
+.apresentacao-conteudo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1180px;
+    min-height: 470px;
+    margin: 0 auto;
+    padding: 65px 30px 100px;
+}
+
+.apresentacao-texto {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+}
+
+.etiqueta-apresentacao {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 18px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--azul-escuro);
+    font-size: 12px;
+    font-weight: 800;
+    box-shadow: 0 5px 15px rgba(43, 93, 131, 0.08);
+}
+
+.etiqueta-apresentacao i {
+    color: var(--laranja);
+}
+
+.apresentacao-texto h1 {
+    font-family: "Mouse Memoirs", sans-serif;
+    font-size: clamp(54px, 6vw, 78px);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: 1px;
+    color: var(--branco);
+    text-shadow: 2px 4px 10px rgba(34, 80, 115, 0.1);
+}
+
+.apresentacao-texto h1 span {
+    display: block;
+    color: var(--laranja);
+}
+
+.apresentacao-texto p {
+    max-width: 510px;
+    margin-top: 22px;
+    color: var(--azul-escuro);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+.botao-encontrar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 27px;
+    padding: 13px 28px;
+    border-radius: 14px;
+    background: var(--laranja);
+    color: var(--branco);
+    font-family: "Mouse Memoirs", sans-serif;
+    font-size: 27px;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(255, 140, 0, 0.2);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.botao-encontrar:hover {
+    background: var(--laranja-hover);
+    transform: translateY(-3px);
+}
+
+.botao-encontrar i {
+    font-size: 14px;
+}
+
+.apresentacao-imagens {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 350px;
+    height: 325px;
+}
+
+.circulo-imagem {
+    width: 295px;
+    height: 295px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.38);
+    border: 3px dashed rgba(255, 255, 255, 0.7);
+}
+
+.imagem-cachorro {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    z-index: 2;
+    width: 245px;
+    max-height: 290px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 10px rgba(35, 83, 117, 0.12));
+}
+
+.imagem-gato {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+    width: 160px;
+    max-height: 215px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 10px rgba(35, 83, 117, 0.1));
+}
+
+.coracao-decorativo {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--laranja);
+    color: var(--branco);
+    font-size: 25px;
+    transform: rotate(15deg);
+    box-shadow: 0 8px 18px rgba(255, 140, 0, 0.18);
+}
+
+.decoracao-pata {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.32);
+    font-size: 35px;
+    pointer-events: none;
+}
+
+.pata-um {
+    top: 45px;
+    left: 15px;
+    transform: rotate(-25deg);
+}
+
+.pata-dois {
+    bottom: 60px;
+    left: 43%;
+    transform: rotate(25deg);
+}
+
+.pata-tres {
+    top: 40px;
+    right: 15px;
+    transform: rotate(20deg);
+}
+
+.onda-apresentacao {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    line-height: 0;
+}
+
+.onda-apresentacao svg {
+    width: 100%;
+    height: 100%;
+}
+
+.onda-apresentacao path {
+    fill: var(--azul-principal);
+}
+
+.secao-encontrar {
+    padding: 60px 0 105px;
+    scroll-margin-top: 95px;
+}
+
+.adocao-container-pagina {
+    width: min(1150px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+.cabecalho-adocao {
+    max-width: 750px;
+    margin: 0 auto 38px;
+    text-align: center;
+}
+
+.titulo-etiqueta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 17px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.75);
+    color: var(--azul-escuro);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+}
+
+.titulo-etiqueta i {
+    color: var(--laranja);
+}
+
+.cabecalho-adocao h2 {
+    margin-top: 15px;
+    color: var(--branco);
+    font-family: "Mouse Memoirs", sans-serif;
+    font-size: clamp(48px, 5vw, 67px);
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-shadow: 2px 4px 10px rgba(34, 80, 115, 0.1);
+}
+
+.cabecalho-adocao h2 span {
+    color: var(--laranja);
+}
+
+.cabecalho-adocao p {
+    margin-top: 8px;
+    color: var(--azul-escuro);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.7;
+}
+
+.filtros-painel {
+    margin-bottom: 42px;
+    padding: 28px 30px;
+    border: 2px solid rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: var(--sombra);
+}
+
+.filtros-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.filtros-titulo h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--azul-escuro);
+    font-family: "Mouse Memoirs", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.filtros-titulo h3 i {
+    color: var(--laranja);
+    font-size: 19px;
+}
+
+.filtros-titulo p {
+    margin-top: 4px;
+    color: var(--texto-suave);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.botao-limpar {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+    padding: 11px 16px;
+    border: 1px solid #d7e9f6;
+    border-radius: 11px;
+    background: var(--azul-claro);
+    color: var(--azul-escuro);
+    font-size: 12px;
+    font-weight: 800;
+    transition: background 0.2s;
+}
+
+.botao-limpar:hover {
+    background: #d7edfc;
+}
+
+.filtros-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.filtro-campo {
+    min-width: 0;
+}
+
+.filtro-campo label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--azul-escuro);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.filtro-campo input,
+.filtro-campo select {
+    width: 100%;
+    height: 46px;
+    padding: 0 13px;
+    border: 1px solid #dceaf5;
+    border-radius: 11px;
+    outline: none;
+    background: #f8fcff;
+    color: var(--texto);
+    font-size: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filtro-campo input:focus,
+.filtro-campo select:focus {
+    border-color: var(--azul-secundario);
+    box-shadow: 0 0 0 3px rgba(150, 209, 250, 0.2);
+}
+
+.campo-com-icone {
+    position: relative;
+}
+
+.campo-com-icone i {
+    position: absolute;
+    top: 50%;
+    left: 13px;
+    transform: translateY(-50%);
+    color: var(--laranja);
+    font-size: 12px;
+}
+
+.campo-com-icone input {
+    padding-left: 35px;
+}
+
+.resultados-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.resultados-cabecalho h3 {
+    color: var(--branco);
+    font-family: "Mouse Memoirs", sans-serif;
+    font-size: 37px;
+    font-weight: 400;
+}
+
+.resultados-cabecalho p {
+    margin-top: 3px;
+    color: var(--azul-escuro);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.ordenacao-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ordenacao-container label {
+    color: var(--azul-escuro);
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.ordenacao-container select {
+    height: 43px;
+    padding: 0 13px;
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: 11px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--azul-escuro);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.filtros-ativos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.filtros-ativos:empty {
+    display: none;
+}
+
+.tag-filtro {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 13px;
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--azul-escuro);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.tag-filtro i {
+    color: var(--laranja);
+}
+
+#gridAnimais {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+#gridAnimais .adocao-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 10px 25px rgba(36, 86, 122, 0.1);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+#gridAnimais .adocao-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 17px 35px rgba(36, 86, 122, 0.16);
+}
+
+#gridAnimais .adocao-img-container {
+    position: relative;
+    height: 210px;
+    overflow: hidden;
+    background: var(--azul-claro);
+}
+
+#gridAnimais .pet-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s;
+}
+
+#gridAnimais .adocao-card:hover .pet-img {
+    transform: scale(1.05);
+}
+
+
+#gridAnimais .adocao-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 22px;
+}
+
+#gridAnimais .adocao-info h3 {
+    color: var(--azul-escuro);
+    font-family: "Mouse Memoirs", sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+#gridAnimais .pet-local {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 11px 0 15px;
+    color: var(--texto-suave);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+#gridAnimais .pet-local i {
+    color: var(--laranja);
+}
+
+#gridAnimais .pet-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 15px;
+}
+
+#gridAnimais .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 10px;
+    border-radius: 9px;
+    background: var(--azul-claro);
+    color: var(--azul-escuro);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+#gridAnimais .tag i {
+    color: var(--azul-secundario);
+}
+
+#gridAnimais .pet-desc {
+    flex: 1;
+    margin-bottom: 18px;
+    color: var(--texto-suave);
+    font-size: 12px;
+    line-height: 1.75;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+#gridAnimais .btn-adotar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: auto;
+    padding: 13px 17px;
+    border: none;
+    border-radius: 12px;
+    background: var(--laranja);
+    color: var(--branco);
+    font-family: "Mouse Memoirs", sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    box-shadow: 0 6px 15px rgba(255, 140, 0, 0.16);
+    transition: background 0.2s, transform 0.2s;
+}
+
+#gridAnimais .btn-adotar:hover {
+    background: var(--laranja-hover);
+    transform: translateY(-2px);
+}
+
+#gridAnimais .btn-adotar i {
+    font-size: 14px;
+}
+
+.sem-resultados {
+    padding: 70px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.95);
+    text-align: center;
+}
+
+.sem-resultados-icone {
+    display: grid;
+    place-items: center;
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: var(--azul-claro);
+    color: var(--laranja);
+    font-size: 33px;
+}
+
+.sem-resultados h3 {
+    color: var(--azul-escuro);
+    font-family: "Mouse Memoirs", sans-serif;
+    font-size: 39px;
+    font-weight: 400;
+}
+
+.sem-resultados p {
+    max-width: 400px;
+    margin: 10px auto 20px;
+    color: var(--texto-suave);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.sem-resultados button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 11px;
+    background: var(--laranja);
+    color: var(--branco);
+    font-weight: 800;
+}
+
+.adocao-mensagem {
+    padding: 70px 24px;
+    border-top: 2px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.mensagem-conteudo {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.mensagem-icone {
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: var(--branco);
+    color: var(--laranja);
+    font-size: 29px;
+    box-shadow: 0 8px 20px rgba(43, 93, 131, 0.08);
+}
+
+.mensagem-conteudo h2 {
+    color: var(--branco);
+    font-family: "Mouse Memoirs", sans-serif;
+    font-size: 52px;
+    font-weight: 400;
+}
+
+.mensagem-conteudo h2 span {
+    color: var(--laranja);
+}
+
+.mensagem-conteudo p {
+    margin-top: 11px;
+    color: var(--azul-escuro);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+.modal-fundo {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(20, 47, 70, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.modal-adocao {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 24px;
+    background: var(--branco);
+    box-shadow: 0 20px 60px rgba(20, 47, 70, 0.22);
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 39px;
+    height: 39px;
+    border: none;
+    border-radius: 50%;
+    background: var(--branco);
+    color: var(--azul-escuro);
+    font-size: 17px;
+}
+
+.modal-imagem {
+    display: block;
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+}
+
+.modal-informacoes {
+    padding: 27px;
+}
+
+.modal-informacoes h2 {
+    color: var(--azul-escuro);
+    font-family: "Mouse Memoirs", sans-serif;
+    font-size: 46px;
+    font-weight: 400;
+}
+
+.modal-local {
+    color: var(--texto-suave);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.modal-local i {
+    color: var(--laranja);
+}
+
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.modal-tags span {
+    padding: 8px 11px;
+    border-radius: 9px;
+    background: var(--azul-claro);
+    color: var(--azul-escuro);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.modal-descricao {
+    color: var(--texto);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.modal-aviso {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 13px;
+    background: #fff1dd;
+    color: #865419;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+body.modal-aberto {
+    overflow: hidden;
+}
+
+@media (max-width: 1050px) {
+    .filtros-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    #gridAnimais {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .apresentacao-imagens {
+        width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .apresentacao-conteudo {
+        min-height: auto;
+        padding: 55px 24px 90px;
+    }
+
+    .apresentacao-imagens {
+        display: none;
+    }
+
+    .apresentacao-texto h1 {
+        font-size: 59px;
+    }
+
+    .filtros-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .filtros-painel {
+        padding: 23px;
+    }
+
+    .filtros-titulo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .resultados-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .adocao-container-pagina {
+        width: calc(100% - 36px);
+    }
+}
+
+@media (max-width: 540px) {
+    .apresentacao-texto h1 {
+        font-size: 49px;
+    }
+
+    .apresentacao-texto p {
+        font-size: 14px;
+    }
+
+    .cabecalho-adocao h2 {
+        font-size: 48px;
+    }
+
+    .filtros-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #gridAnimais {
+        grid-template-columns: 1fr;
+    }
+
+    #gridAnimais .adocao-img-container {
+        height: 235px;
+    }
+
+    .ordenacao-container {
+        width: 100%;
+    }
+
+    .ordenacao-container select {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .mensagem-conteudo h2 {
+        font-size: 43px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    #gridAnimais .adocao-card,
+    #gridAnimais .pet-img,
+    .botao-encontrar {
+        transition: none;
+    }
+}

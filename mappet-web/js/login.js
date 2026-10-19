@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const usuarioLogado = MapPet.usuarioLogado();
 
     if (usuarioLogado) {
-        window.location.replace('./user.html');
+        const destino = sessionStorage.getItem('mappetDestinoLogin');
+        sessionStorage.removeItem('mappetDestinoLogin');
+        window.location.replace(destino && /^\.\/contato-adocao\.html\?id=\d+$/.test(destino) ? destino : './user.html');
         return;
     }
 
@@ -55,7 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         localStorage.setItem('mappetSessao', usuario.id);
 
-        window.location.replace('./user.html');
+        const destino = sessionStorage.getItem('mappetDestinoLogin');
+        sessionStorage.removeItem('mappetDestinoLogin');
+        window.location.replace(destino && /^\.\/contato-adocao\.html\?id=\d+$/.test(destino) ? destino : './user.html');
     });
 
     esqueciSenha.addEventListener('click', function (evento) {
