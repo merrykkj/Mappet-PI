@@ -41,8 +41,14 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.insertAdjacentHTML('beforeend', `<div id="modal-exclusao" class="modal-pet-overlay" role="dialog" aria-modal="true" aria-labelledby="titulo-exclusao" hidden><div class="modal-pet-caixa"><div class="modal-pet-simbolo perigo"><i class="fa-solid fa-trash-can"></i></div><h3 id="titulo-exclusao">Excluir anúncio?</h3><p id="texto-exclusao"></p><div class="modal-pet-acoes"><button type="button" id="btn-cancelar-exclusao" class="modal-pet-botao secundario">Cancelar</button><button type="button" id="btn-confirmar-exclusao" class="modal-pet-botao excluir">Sim, excluir</button></div></div></div>`);
     }
 
+    if (!document.getElementById('modal-erro-cadastro')) {
+        document.body.insertAdjacentHTML('beforeend', `<div id="modal-erro-cadastro" class="modal-pet-overlay" role="alertdialog" aria-modal="true" aria-labelledby="titulo-erro-cadastro" aria-describedby="texto-erro-cadastro" hidden><div class="modal-pet-caixa"><div class="modal-pet-simbolo erro"><i class="fa-solid fa-circle-exclamation"></i></div><span class="modal-pet-etiqueta">MapPet • Atenção aos detalhes</span><h3 id="titulo-erro-cadastro">Ops! Faltam informações.</h3><p id="texto-erro-cadastro">Preencha os campos obrigatórios para continuar.</p><button type="button" id="btn-ok-erro-cadastro" class="modal-pet-botao principal">Entendi, vou preencher!</button></div></div>`);
+    }
+
     const modalPublicacao = document.getElementById('modal-publicacao');
     const modalExclusao = document.getElementById('modal-exclusao');
+    const modalErroCadastro = document.getElementById('modal-erro-cadastro');
+    let campoPendente = null;
 
     function abrirModalPet(elemento) {
         elemento.hidden = false;
@@ -52,6 +58,18 @@ document.addEventListener('DOMContentLoaded', function () {
     function fecharModalPet(elemento) {
         elemento.hidden = true;
     }
+
+    function mostrarErroCadastro(mensagem, input) {
+        document.getElementById('texto-erro-cadastro').textContent = mensagem;
+        campoPendente = input || null;
+        abrirModalPet(modalErroCadastro);
+    }
+
+    document.getElementById('btn-ok-erro-cadastro').addEventListener('click', function () {
+        fecharModalPet(modalErroCadastro);
+        if (campoPendente) campoPendente.focus();
+        campoPendente = null;
+    });
 
     document.getElementById('btn-ok-publicacao').addEventListener('click', function () {
         fecharModalPet(modalPublicacao);
@@ -78,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fecharModalPet(modalExclusao);
     });
 
-    [modalPublicacao, modalExclusao].forEach(function (elemento) {
+    [modalPublicacao, modalExclusao, modalErroCadastro].forEach(function (elemento) {
         elemento.addEventListener('click', function (evento) {
             if (evento.target === elemento) {
                 if (elemento === modalPublicacao && redirecionarAdocao) return;
@@ -93,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!modalPublicacao.hidden && redirecionarAdocao) return;
             fecharModalPet(modalPublicacao);
             fecharModalPet(modalExclusao);
+            fecharModalPet(modalErroCadastro);
             idParaExcluir = '';
         }
     });
@@ -276,10 +295,22 @@ document.addEventListener('DOMContentLoaded', function () {
         evento.preventDefault();
         const formulario = evento.target;
         const obrigatorios = formulario.querySelectorAll('[required]');
+        const campos = formulario.querySelectorAll('input:not([type="file"]), textarea, select');
+        const fotoInput = formulario.querySelector('input[type="file"]');
+        const preenchidos = Array.from(campos).filter(function (input) {
+            return input.value.trim() !== '' && (input.tagName !== 'SELECT' || input.selectedIndex > 0);
+        });
+
+        if (preenchidos.length === 0 && (!fotoInput || !fotoInput.files.length)) {
+            mostrarErroCadastro('Para publicar seu anúncio, preencha os campos obrigatórios e adicione uma foto do bichinho.', fotoInput);
+            return;
+        }
+
         for (const input of obrigatorios) {
-            if (!input.checkValidity()) {
-                alert(input.type === 'file' ? 'Selecione uma foto para publicar o anúncio.' : 'Preencha corretamente o campo: ' + (formulario.querySelector('label[for="' + input.id + '"]')?.textContent.trim() || input.id));
-                input.focus();
+            if (!input.checkValidity() || (input.type !== 'file' && !input.value.trim())) {
+                const label = formulario.querySelector('label[for="' + input.id + '"]');
+                const nomeCampo = label ? label.textContent.trim() : 'campo obrigatório';
+                mostrarErroCadastro(input.type === 'file' ? 'Adicione uma foto do bichinho para publicar seu anúncio.' : 'Preencha corretamente o campo: ' + nomeCampo + '.', input);
                 return;
             }
         }
@@ -321,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         if (!pet.nome || !pet.local || !pet.descricao) {
-            alert('Preencha os campos obrigatórios.');
+            mostrarErroCadastro('Preencha as informações do pet, a localização e a descrição antes de publicar.');
             return;
         }
 
