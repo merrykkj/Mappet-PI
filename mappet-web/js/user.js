@@ -5,6 +5,20 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
+    const menuPerfil = document.querySelector('.menu-perfil-dashboard');
+    if (menuPerfil) {
+        const botaoPerfil = menuPerfil.querySelector('.perfil-toggle');
+        botaoPerfil.addEventListener('click', function () {
+            const aberto = menuPerfil.classList.toggle('aberto');
+            botaoPerfil.setAttribute('aria-expanded', String(aberto));
+        });
+        menuPerfil.querySelector('.perfil-sair').addEventListener('click', function () {
+            localStorage.removeItem('mappetSessao');
+            window.location.href = './index.html';
+        });
+    }
+    if (!Array.isArray(usuario.pets)) usuario.pets = [];
+    if (!usuario.configuracoes) usuario.configuracoes = {};
     const nome = usuario.nome.trim().split(' ')[0];
     document.getElementById('nome-usuario-sidebar').textContent = nome;
     document.getElementById('nome-usuario').textContent = nome;
@@ -31,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         card.className = 'card-pet';
         card.dataset.id = pet.id;
 
-        let status = pet.tipo === 'perdido' ? 'Perdido' : 'Encontrado';
+        let status = pet.tipo === 'perdido' ? 'Perdido' : pet.tipo === 'adocao' ? 'Adoção' : 'Encontrado';
         if (pet.reencontrado) status = 'Reencontrado';
 
         let foto = '<div class="sem-foto-pet"><i class="fa-solid fa-paw"></i></div>';
@@ -42,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             botoes = '<div class="acoes-card-pet">' +
                 '<button class="btn-editar" data-acao="editar">Editar</button>' +
                 '<button class="btn-excluir" data-acao="excluir">Excluir</button>' +
-                '<button class="btn-editar" data-acao="reencontrar">Marcar reencontro</button>' +
+                (pet.tipo === 'adocao' ? '<a class="btn-editar" href="./contato-adocao.html?id=' + encodeURIComponent(pet.id) + '">Ver anúncio</a>' : '<button class="btn-editar" data-acao="reencontrar">Marcar reencontro</button>') +
                 '</div>';
         }
 
@@ -65,16 +79,18 @@ document.addEventListener('DOMContentLoaded', function () {
         let encontrados = 0;
         let ativos = 0;
         let reencontros = 0;
+        let adocoes = 0;
         let exibidos = 0;
 
         usuario.pets.forEach(function (pet) {
-            if (pet.reencontrado) {
+            if (pet.reencontrado && pet.tipo !== 'adocao') {
                 reencontros++;
                 listaHistorico.appendChild(criarCard(pet, true));
             } else {
                 ativos++;
                 if (pet.tipo === 'perdido') perdidos++;
-                else encontrados++;
+                else if (pet.tipo === 'encontrado') encontrados++;
+                else adocoes++;
 
                 if (filtroAtual === 'todos' || filtroAtual === pet.tipo) {
                     listaPets.appendChild(criarCard(pet, false));
@@ -126,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const texto = botao.textContent.trim().toLowerCase();
             if (texto === 'perdidos') filtroAtual = 'perdido';
             else if (texto === 'encontrados') filtroAtual = 'encontrado';
+            else if (texto === 'adoção') filtroAtual = 'adocao';
             else filtroAtual = 'todos';
             mostrarPets();
         });
@@ -144,76 +161,135 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    function publicarPet(evento, tipo) {
-        evento.preventDefault();
-        let nomePet = '';
-        let especie = '';
-        let descricao = '';
-
-        if (tipo === 'perdido') {
-            nomePet = document.getElementById('nome-pet-perdido').value.trim();
-            especie = document.getElementById('especie-pet-perdido').value.trim();
-            descricao = document.getElementById('detalhes-pet-perdido').value.trim();
-        } else {
-            nomePet = document.getElementById('aparencia-pet-encontrado').value.trim();
-            especie = 'Pet encontrado';
-            descricao = document.getElementById('observacoes-pet-encontrado').value.trim();
+    const cadastro = new URLSearchParams(window.location.search).get('cadastro');
+    if (cadastro === 'perdido' || cadastro === 'encontrado') {
+        const botaoCadastro = document.querySelector('[data-target="secao-cadastro-animal"]');
+        const botaoTipo = document.querySelector('.btn-tipo-cadastro[data-tipo="' + cadastro + '"]');
+        if (botaoCadastro && botaoTipo) {
+            botaoCadastro.click();
+            botaoTipo.click();
         }
+    }
 
-        const local = document.getElementById('local-pet-' + tipo).value.trim();
-        if (!nomePet || !local) {
-            alert('Preencha o nome ou aparência e o local.');
+    function campo(id) {
+        return document.getElementById(id).value.trim();
+    }
+
+    function lerFoto(arquivo, callback) {
+        if (!arquivo || !arquivo.type.startsWith('image/')) {
+            alert('Selecione uma foto válida.');
             return;
         }
+        if (arquivo.size > 750000) {
+            alert('A foto precisa ter menos de 750 KB.');
+            return;
+        }
+        const leitor = new FileReader();
+        leitor.onload = function () { callback(leitor.result); };
+        leitor.readAsDataURL(arquivo);
+    }
 
-        const pet = {
+    document.querySelectorAll('.upload-container input[type="file"]').forEach(function (input) {
+        input.addEventListener('change', function () {
+            const preview = input.parentElement.querySelector('.preview-foto');
+            if (!input.files[0]) {
+                preview.hidden = true;
+                preview.removeAttribute('src');
+                return;
+            }
+            lerFoto(input.files[0], function (foto) {
+                preview.src = foto;
+                preview.hidden = false;
+            });
+        });
+    });
+
+    function publicarPet(evento, tipo) {
+        evento.preventDefault();
+        const formulario = evento.target;
+        const obrigatorios = formulario.querySelectorAll('[required]');
+        for (const input of obrigatorios) {
+            if (!input.checkValidity()) {
+                alert(input.type === 'file' ? 'Selecione uma foto para publicar o anúncio.' : 'Preencha corretamente o campo: ' + (formulario.querySelector('label[for="' + input.id + '"]')?.textContent.trim() || input.id));
+                input.focus();
+                return;
+            }
+        }
+
+        let pet = {
             id: String(Date.now()) + String(Math.random()),
-            nome: nomePet,
-            especie: especie,
-            descricao: descricao,
-            local: local,
             tipo: tipo,
             foto: '',
             reencontrado: false,
             criadoEm: new Date().toLocaleDateString('pt-BR')
         };
 
-        function finalizar() {
+        if (tipo === 'perdido') {
+            pet.nome = campo('nome-pet-perdido');
+            pet.especie = campo('especie-pet-perdido');
+            pet.local = campo('local-pet-perdido');
+            pet.descricao = campo('detalhes-pet-perdido');
+        } else if (tipo === 'encontrado') {
+            pet.nome = campo('aparencia-pet-encontrado');
+            pet.especie = 'Pet encontrado';
+            pet.local = campo('local-pet-encontrado');
+            pet.descricao = campo('observacoes-pet-encontrado');
+            pet.situacao = campo('situacao-pet-encontrado');
+        } else {
+            pet.nome = campo('nome-pet-adocao');
+            pet.especie = campo('especie-pet-adocao');
+            pet.raca = campo('raca-pet-adocao');
+            pet.sexo = campo('sexo-pet-adocao');
+            pet.meses = Number(campo('idade-pet-adocao'));
+            pet.porte = campo('porte-pet-adocao');
+            pet.cor = campo('cor-pet-adocao');
+            pet.cidade = campo('cidade-pet-adocao');
+            pet.bairro = campo('bairro-pet-adocao');
+            pet.telefone = campo('telefone-pet-adocao');
+            pet.email = campo('email-pet-adocao');
+            pet.descricao = campo('detalhes-pet-adocao');
+            pet.local = pet.bairro + ', ' + pet.cidade;
+            pet.donoId = usuario.id;
+        }
+
+        if (!pet.nome || !pet.local || !pet.descricao) {
+            alert('Preencha os campos obrigatórios.');
+            return;
+        }
+
+        const arquivo = document.getElementById('foto-pet-' + tipo).files[0];
+        lerFoto(arquivo, function (foto) {
+            pet.foto = foto;
+            if (!Array.isArray(usuario.pets)) usuario.pets = [];
             usuario.pets.push(pet);
+            if (tipo === 'adocao') {
+                if (!Array.isArray(usuario.adocoes)) usuario.adocoes = [];
+                usuario.adocoes.push(pet);
+            }
             try {
-                salvar();
-                evento.target.reset();
+                MapPet.salvarUsuario(usuario);
+                mostrarPets();
+                formulario.reset();
+                const preview = formulario.querySelector('.preview-foto');
+                if (preview) {
+                    preview.hidden = true;
+                    preview.removeAttribute('src');
+                }
                 document.querySelector('[data-target="secao-perfil"]').click();
+                if (tipo === 'adocao') { window.location.href = './adocao.html#encontrar-pet'; return; }
+                alert('Publicação cadastrada com sucesso!');
             } catch (erro) {
                 usuario.pets.pop();
-                alert('Não foi possível salvar. O armazenamento pode estar cheio.');
+                if (tipo === 'adocao') usuario.adocoes.pop();
+                alert('Não foi possível salvar o anúncio. Verifique o espaço disponível no navegador e tente uma foto menor.');
             }
-        }
-
-        if (tipo === 'encontrado') {
-            const arquivo = document.getElementById('foto-pet-encontrado').files[0];
-            if (arquivo) {
-                if (arquivo.size > 750000) {
-                    alert('A foto precisa ter menos de 750 KB.');
-                    return;
-                }
-                const leitor = new FileReader();
-                leitor.onload = function () {
-                    pet.foto = leitor.result;
-                    finalizar();
-                };
-                leitor.readAsDataURL(arquivo);
-                return;
-            }
-        }
-        finalizar();
+        });
     }
 
-    document.getElementById('form-pet-perdido').addEventListener('submit', function (evento) {
-        publicarPet(evento, 'perdido');
-    });
-    document.getElementById('form-pet-encontrado').addEventListener('submit', function (evento) {
-        publicarPet(evento, 'encontrado');
+    ['perdido', 'encontrado', 'adocao'].forEach(function (tipo) {
+        document.getElementById('form-pet-' + tipo).addEventListener('submit', function (evento) {
+            publicarPet(evento, tipo);
+        });
     });
 
     listaPets.addEventListener('click', function (evento) {
@@ -230,6 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 usuario.pets = usuario.pets.filter(function (item) {
                     return item.id !== id;
                 });
+                if (pet.tipo === 'adocao') usuario.adocoes = (usuario.adocoes || []).filter(function (item) { return item.id !== id; });
                 salvar();
             }
         }
@@ -272,6 +349,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!pet.nome || !pet.local) {
             alert('Preencha o nome e o local.');
             return;
+        }
+        if (pet.tipo === 'adocao') {
+            const registro = (usuario.adocoes || []).find(function (item) { return item.id === pet.id; });
+            if (registro) Object.assign(registro, pet);
         }
         salvar();
         fecharModal();

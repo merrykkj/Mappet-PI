@@ -1,5 +1,5 @@
 
-const animais = [
+const animaisDemo = [
     {
         id: 1,
         nome: "Pipoca",
@@ -86,6 +86,24 @@ const animais = [
     }
 ];
 
+function carregarAnimais() {
+    const lista = animaisDemo.map(function (item) { return Object.assign({}, item, {id:'demo-' + item.id, demonstrativo:true}); });
+    if (typeof MapPet !== 'undefined') {
+        MapPet.usuarios().forEach(function (usuario) {
+            const publicacoes = [].concat(Array.isArray(usuario.pets) ? usuario.pets : [], Array.isArray(usuario.adocoes) ? usuario.adocoes : []);
+            publicacoes.forEach(function (pet) {
+                if (pet.tipo !== 'adocao' || lista.some(function (item) { return String(item.id) === String(pet.id); })) return;
+                lista.push(Object.assign({}, pet, { imagem:pet.foto || pet.imagem || '', idade:Number(pet.meses) < 12 ? 'Filhote' : 'Adulto', demonstrativo:false }));
+            });
+        });
+    }
+    return lista;
+}
+const animais = carregarAnimais();
+function seguro(valor) {
+    return String(valor == null ? '' : valor).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
 const busca = document.getElementById("busca");
 const especie = document.getElementById("especie");
 const cidade = document.getElementById("cidade");
@@ -159,7 +177,7 @@ function preencherBairros() {
         }
 
         if (!existe) {
-            bairro.innerHTML += `<option value="${animal.bairro}">${animal.bairro}</option>`;
+            bairro.innerHTML += `<option value="${seguro(animal.bairro)}">${seguro(animal.bairro)}</option>`;
         }
     }
 
@@ -236,7 +254,7 @@ function filtrarAnimais() {
 
     if (ordenacao.value === "recentes") {
         resultado.sort(function(a, b) {
-            return b.id - a.id;
+            return Number(b.criadoTimestamp || (b.demonstrativo ? 0 : String(b.id).split('.')[0])) - Number(a.criadoTimestamp || (a.demonstrativo ? 0 : String(a.id).split('.')[0]));
         });
     }
 
@@ -273,8 +291,8 @@ function mostrarAnimais(lista) {
             <article class="adocao-card">
                 <div class="adocao-img-container">
                     <img
-                        src="${animal.imagem}"
-                        alt="Foto de ${animal.nome}"
+                        src="${seguro(animal.imagem)}"
+                        alt="Foto de ${seguro(animal.nome)}"
                         class="pet-img"
                         loading="lazy"
                     >
@@ -283,11 +301,11 @@ function mostrarAnimais(lista) {
                 </div>
 
                 <div class="adocao-info">
-                    <h3>${animal.nome}</h3>
+                    <h3>${seguro(animal.nome)}</h3>
 
                     <p class="pet-local">
                         <i class="fa-solid fa-location-dot"></i>
-                        ${animal.bairro}, ${animal.cidade}
+                        ${seguro(animal.bairro)}, ${seguro(animal.cidade)}
                     </p>
 
                     <div class="pet-tags">
@@ -298,26 +316,26 @@ function mostrarAnimais(lista) {
 
                         <span class="tag">
                             <i class="fa-solid ${iconeSexo}"></i>
-                            ${animal.sexo}
+                            ${seguro(animal.sexo)}
                         </span>
 
                         <span class="tag">
                             <i class="fa-solid ${iconeEspecie}"></i>
-                            Porte ${animal.porte}
+                            Porte ${seguro(animal.porte)}
                         </span>
 
                         <span class="tag">
                             <i class="fa-solid fa-palette"></i>
-                            ${animal.cor}
+                            ${seguro(animal.cor)}
                         </span>
                     </div>
 
-                    <p class="pet-desc">${animal.descricao}</p>
+                    <p class="pet-desc">${seguro(animal.descricao)}</p>
 
                     <button
                         type="button"
                         class="btn-adotar"
-                        onclick="solicitarAdocao(${animal.id})"
+                        data-pet-id="${seguro(animal.id)}"
                     >
                         Quero Adotar
                         <i class="fa-solid fa-heart"></i>
@@ -390,21 +408,14 @@ function limparFiltros() {
 }
 
 function solicitarAdocao(id) {
-    const destino = "./contato-adocao.html?id=" + encodeURIComponent(id);
-
-    if (MapPet.usuarioLogado()) {
-        window.location.href = destino;
-    } else {
-        sessionStorage.setItem("mappetDestinoLogin", destino);
-        window.location.href = "./login.html";
-    }
+    window.location.href = "./contato-adocao.html?id=" + encodeURIComponent(id);
 }
 
 function abrirDetalhes(id) {
     let animalSelecionado = null;
 
     for (let i = 0; i < animais.length; i++) {
-        if (animais[i].id === id) {
+        if (String(animais[i].id) === String(id)) {
             animalSelecionado = animais[i];
             break;
         }
@@ -418,28 +429,28 @@ function abrirDetalhes(id) {
 
     modalConteudo.innerHTML = `
         <img
-            src="${animal.imagem}"
-            alt="Foto de ${animal.nome}"
+            src="${seguro(animal.imagem)}"
+            alt="Foto de ${seguro(animal.nome)}"
             class="modal-imagem"
         >
 
         <div class="modal-informacoes">
-            <h2 id="modalNome">${animal.nome}</h2>
+            <h2 id="modalNome">${seguro(animal.nome)}</h2>
 
             <p class="modal-local">
                 <i class="fa-solid fa-location-dot"></i>
-                ${animal.bairro}, ${animal.cidade}
+                ${seguro(animal.bairro)}, ${seguro(animal.cidade)}
             </p>
 
             <div class="modal-tags">
                 <span>${animal.especie}</span>
-                <span>${animal.sexo}</span>
+                <span>${seguro(animal.sexo)}</span>
                 <span>${formatarIdade(animal.meses)}</span>
-                <span>Porte ${animal.porte}</span>
-                <span>${animal.cor}</span>
+                <span>Porte ${seguro(animal.porte)}</span>
+                <span>${seguro(animal.cor)}</span>
             </div>
 
-            <p class="modal-descricao">${animal.descricao}</p>
+            <p class="modal-descricao">${seguro(animal.descricao)}</p>
 
             <div class="modal-aviso">
                 <i class="fa-solid fa-circle-info"></i>
@@ -493,3 +504,8 @@ preencherCidades();
 preencherCores();
 preencherBairros();
 filtrarAnimais();
+
+document.addEventListener('click', function (evento) {
+    const botao = evento.target.closest('.btn-adotar[data-pet-id]');
+    if (botao) solicitarAdocao(botao.dataset.petId);
+});

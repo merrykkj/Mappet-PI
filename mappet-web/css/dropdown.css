@@ -1,0 +1,68 @@
+
+.menu-perfil {
+    position: relative;
+    font-family: 'Nunito', sans-serif;
+}
+
+.perfil-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 0;
+    border-radius: 12px;
+    background: #fff;
+    color: #548db5;
+    padding: 12px 17px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.perfil-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 205px;
+    padding: 8px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 12px 35px #28567533;
+    z-index: 110;
+}
+
+.menu-perfil.aberto .perfil-dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.perfil-dropdown a,
+.perfil-dropdown button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: #45657c;
+    text-align: left;
+    font: 700 13px 'Nunito', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.perfil-dropdown a:hover,
+.perfil-dropdown button:hover {
+    background: #eaf6ff;
+}
+
+@media (max-width: 900px) {
+    .perfil-dropdown {
+        right: 0;
+    }
+}

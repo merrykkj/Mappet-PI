@@ -8,12 +8,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const mostrarSenha = document.querySelector('.mostrar-senha');
     const esqueciSenha = document.getElementById('esqueci-senha');
 
+    const voltar = document.querySelector('.btn-voltar-home');
+    if (voltar) {
+        voltar.addEventListener('click', function (evento) {
+            evento.preventDefault();
+            let anterior = '';
+            try {
+                if (document.referrer) {
+                    const pagina = new URL(document.referrer);
+                    if (pagina.origin === window.location.origin && !/\/(login|cadastro)\.html$/.test(pagina.pathname)) {
+                        anterior = pagina.href;
+                    }
+                }
+            } catch (erro) {}
+            window.location.href = anterior || './index.html';
+        });
+    }
+
     const usuarioLogado = MapPet.usuarioLogado();
 
     if (usuarioLogado) {
         const destino = sessionStorage.getItem('mappetDestinoLogin');
         sessionStorage.removeItem('mappetDestinoLogin');
-        window.location.replace(destino && /^\.\/contato-adocao\.html\?id=\d+$/.test(destino) ? destino : './user.html');
+        window.location.replace(destino && /^\.\/contato-adocao\.html\?id=[a-zA-Z0-9._-]+$/.test(destino) ? destino : './user.html');
         return;
     }
 
@@ -59,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const destino = sessionStorage.getItem('mappetDestinoLogin');
         sessionStorage.removeItem('mappetDestinoLogin');
-        window.location.replace(destino && /^\.\/contato-adocao\.html\?id=\d+$/.test(destino) ? destino : './user.html');
+        window.location.replace(destino && /^\.\/contato-adocao\.html\?id=[a-zA-Z0-9._-]+$/.test(destino) ? destino : './user.html');
     });
 
     esqueciSenha.addEventListener('click', function (evento) {

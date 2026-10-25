@@ -145,37 +145,24 @@
                         </div>
 
                         <div class="input-group">
-
-                            <label for="cidade">Cidade</label>
-
+                            <label for="uf">UF</label>
                             <div class="input-wrapper">
-                                <i class="fa-solid fa-city icone-input"></i>
-
-                                <input
-                                    type="text"
-                                    id="cidade"
-                                    placeholder="Cidade"
-                                    autocomplete="address-level2">
+                                <i class="fa-solid fa-map icone-input"></i>
+                                <select id="uf" autocomplete="address-level1" required>
+                                    <option value="" selected disabled>Selecione a UF</option>
+                                </select>
                             </div>
-
                         </div>
 
                         <div class="input-group">
-
-                            <label for="uf">UF</label>
-
+                            <label for="cidade">Cidade</label>
                             <div class="input-wrapper">
-
-                                <input
-                                    type="text"
-                                    id="uf"
-                                    placeholder="UF"
-                                    maxlength="2"
-                                    autocomplete="address-level1">
+                                <i class="fa-solid fa-city icone-input"></i>
+                                <select id="cidade" autocomplete="address-level2" required disabled>
+                                    <option value="" selected>Selecione a UF primeiro</option>
+                                </select>
                             </div>
-
                         </div>
-
                     </div>
 
                     <div class="form-row dupla">

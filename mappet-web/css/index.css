@@ -624,128 +624,152 @@ h3,
 
 .adocao-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
     width: 100%;
+    align-items: stretch;
 }
 
-.adocao-card {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-radius: 28px;
-    border: 2px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
+.adocao-cards .adocao-card {
     display: flex;
     flex-direction: column;
-    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.adocao-card:hover {
-    transform: translateY(-10px);
-    background: #ffffff;
-    border-color: rgba(255, 140, 0, 0.4);
-    box-shadow: 0 20px 35px -10px rgba(255, 140, 0, 0.2);
-}
-
-.adocao-img-container {
+    min-width: 0;
     position: relative;
-    width: 100%;
-    height: 240px;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 9px 24px rgba(40, 86, 117, 0.11);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.pet-img {
+.adocao-cards .adocao-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(40, 86, 117, 0.17);
+}
+
+.adocao-cards .adocao-img-container {
+    position: relative;
+    height: 225px;
+    overflow: hidden;
+    background: #eaf6ff;
+}
+
+.adocao-cards .adocao-img-container::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 55px;
+    background: linear-gradient(transparent, rgba(22, 61, 90, 0.13));
+    pointer-events: none;
+}
+
+.adocao-cards .pet-img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.35s ease;
 }
 
-.adocao-card:hover .pet-img {
-    transform: scale(1.06);
+.adocao-cards .adocao-card:hover .pet-img {
+    transform: scale(1.04);
 }
 
-.pet-badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background-color: #ff8c00;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 0.85rem;
-    padding: 6px 14px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.adocao-info {
-    padding: 24px;
+.adocao-cards .adocao-info {
     display: flex;
     flex-direction: column;
     flex: 1;
+    min-width: 0;
+    padding: 21px 22px 22px;
 }
 
-.adocao-info h3 {
-    font-size: 2.5rem;
-    color: #ff8c00;
-    margin-bottom: 10px;
-    line-height: 1;
-}
-
-.pet-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 14px;
-}
-
-.tag {
-    background-color: #eaf5fe;
-    color: #1b3e5a;
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 8px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.tag i {
-    color: #ff8c00;
-}
-
-.pet-desc {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #1b3e5a;
-    line-height: 1.4;
-    margin-bottom: 20px;
-    flex: 1;
-}
-
-.btn-adotar {
+.adocao-cards .adocao-info h3 {
+    margin: 0 0 16px;
+    color: #285675;
     font-family: 'Mouse Memoirs', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-    text-decoration: none;
-    text-align: center;
-    background-color: #ff8c00;
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 12px;
-    transition: all 0.25s ease;
+    font-size: 43px;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: 0.3px;
+}
+
+.adocao-cards .pet-tags {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.adocao-cards .tag {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    gap: 7px;
+    padding: 9px 10px;
+    border: 1px solid #e2f0fb;
+    border-radius: 11px;
+    background: #f2f9ff;
+    color: #416985;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.adocao-cards .tag i {
+    flex-shrink: 0;
+    color: #78add2;
+    font-size: 13px;
+}
+
+.adocao-cards .pet-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+    margin: 0 0 19px;
+    color: #6b8496;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.75;
+}
+
+.adocao-cards .btn-adotar {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
+    width: 100%;
+    min-height: 47px;
+    margin-top: auto;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 13px;
+    background: #ff8c00;
+    color: #ffffff;
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    text-decoration: none;
+    box-shadow: 0 5px 12px rgba(255, 140, 0, 0.16);
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.btn-adotar:hover {
-    background-color: #e07b00;
-    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+.adocao-cards .btn-adotar:hover {
+    background: #ed8100;
+    transform: translateY(-2px);
+}
+
+.adocao-cards .btn-adotar:focus-visible {
+    outline: 3px solid #285675;
+    outline-offset: 3px;
+}
+
+.adocao-cards .btn-adotar i {
+    font-size: 14px;
 }
 
 .btn-ver-todos {
@@ -938,7 +962,7 @@ h3,
     transform: translateY(-2px);
 }
 
-/* RODAPÉ */
+
 
 .rodape {
     background: rgba(150, 209, 250, 0.85);
@@ -1041,7 +1065,6 @@ h3,
     box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
 }
 
-/* RESPONSIVIDADE */
 
 @media (max-width: 1100px) and (min-width: 769px) {
     .nav-container {
@@ -1283,5 +1306,30 @@ h3,
 
     .contato-form {
         padding: 24px 16px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .adocao-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    .adocao-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .adocao-cards .adocao-img-container {
+        height: 235px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .adocao-cards .adocao-card,
+    .adocao-cards .pet-img,
+    .adocao-cards .btn-adotar {
+        transition: none;
     }
 }

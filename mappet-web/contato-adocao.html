@@ -3,27 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MapPet | Contato para adoção</title>
+    <title>MapPet | Detalhes da adoção</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/dropdown.css">
     <link rel="stylesheet" href="./css/contato-adocao.css">
     <script src="./js/storage.js" defer></script>
+    <script src="./js/header-contato.js" defer></script>
     <script src="./js/contato-adocao.js" defer></script>
 </head>
 <body>
-    <header class="topo">
-        <a class="marca" href="./index.html">MAP<span>PET</span></a>
-        <a class="voltar" href="./adocao.html"><i class="fa-solid fa-arrow-left"></i> Voltar aos pets</a>
+    <div class="menu-overlay"></div>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="./index.html" class="brand">
+                <span class="logo-texto">MAP<span class="logo-destaque">PET</span></span>
+                <span class="logo-icone"><i class="fa-solid fa-location-dot"></i></span>
+            </a>
+            <button class="hamburger-btn" type="button" aria-label="Abrir menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+            <div class="nav-menu-wrapper">
+                <ul class="nav-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./index.html#sobre">Sobre</a></li>
+                    <li><a href="./adocao.html" aria-current="page">Adoção</a></li>
+                    <li><a href="./perdidos-encontrados.html">Pets</a></li>
+                    <li><a href="./index.html#contato">Contato</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="./login.html" class="btn btn-login">LOGIN</a>
+                    <a href="./cadastro.html" class="btn btn-cadastro">CADASTRE-SE</a>
+                </div>
+            </div>
+        </nav>
     </header>
-    <main class="conteudo">
-        <div class="introducao">
-            <span class="etiqueta"><i class="fa-solid fa-heart"></i> Adoção responsável</span>
-            <h1>Um novo amigo, uma nova história</h1>
-            <p>Confira os dados disponíveis e saiba como entrar em contato com o responsável.</p>
+    <main class="pagina-contato-adocao">
+        <div class="pagina-conteudo">
+            <a class="voltar-adocao" href="./adocao.html"><i class="fa-solid fa-arrow-left"></i> Voltar para adoção</a>
+            <div id="detalhesAdocao" aria-live="polite"><p class="carregando">Carregando informações do animal...</p></div>
         </div>
-        <section class="cartao" id="detalhesAdocao" aria-live="polite"></section>
     </main>
+    <footer class="rodape">
+        <div class="rodape-conteudo">
+            <div class="rodape-top"><div class="rodape-brand"><h2>Map<span>Pet</span></h2></div></div>
+            <div class="rodape-bottom">
+                <p class="rodape-texto">&copy; 2026 Todos os direitos reservados.</p>
+                <div class="rodape-redes"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a></div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

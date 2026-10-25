@@ -1,209 +1,427 @@
+
 * {
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
     font-family: 'Nunito', sans-serif;
-    background: #eaf6ff;
-    color: #285675;
+    background: #f6fbff;
+    color: #365b76;
 }
 
-a {
+.header .brand,
+.header .brand:hover,
+.header .brand:focus,
+.header .brand:visited,
+.header .brand * {
     text-decoration: none;
 }
 
-.topo {
-    display: flex;
-    justify-content: space-between;
+.pagina-contato-adocao {
+    min-height: 75vh;
+    padding: 122px 24px 80px;
+    background: linear-gradient(180deg, #edf8ff 0, #f7fbff 310px);
+}
+
+.pagina-conteudo {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.voltar-adocao {
+    display: inline-flex;
     align-items: center;
-    gap: 16px;
-    padding: 20px max(24px, calc((100vw - 1080px) / 2));
-    background: #96d1fa;
+    gap: 9px;
+    margin-bottom: 24px;
+    color: #648eab;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 13px;
 }
 
-.marca {
-    font-family: 'Mouse Memoirs', sans-serif;
-    font-size: 36px;
-    color: #fff;
-}
-
-.marca span {
+.voltar-adocao:hover {
     color: #ff8c00;
 }
 
-.voltar {
-    color: #285675;
+.abertura {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 23px;
+}
+
+.abertura h1 {
+    margin: 6px 0 4px;
+    color: #315b79;
+    font: 400 clamp(46px, 5vw, 64px)/1 'Mouse Memoirs', sans-serif;
+}
+
+.abertura p {
+    color: #7697ac;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.selo-adocao {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-radius: 40px;
+    background: #ffedf2;
+    color: #c76d87;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.abertura-local {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #648eab;
     font-size: 13px;
     font-weight: 800;
+    padding-top: 15px;
 }
 
-.voltar i {
-    margin-right: 6px;
-}
-
-.conteudo {
-    width: min(1080px, calc(100% - 36px));
-    margin: 54px auto 90px;
-}
-
-.introducao {
-    text-align: center;
-    margin-bottom: 34px;
-}
-
-.etiqueta {
-    display: inline-block;
-    padding: 8px 16px;
-    border-radius: 20px;
-    background: #fff;
-    font-size: 12px;
-    font-weight: 800;
-}
-
-.etiqueta i {
+.abertura-local i {
     color: #ff8c00;
 }
 
-h1, h2 {
-    font-family: 'Mouse Memoirs', sans-serif;
-    font-weight: 400;
+.pagina-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(290px, 1fr);
+    align-items: start;
+    gap: 22px;
 }
 
-h1 {
-    font-size: clamp(42px, 6vw, 65px);
-    margin: 13px 0 8px;
-}
-
-.introducao p {
-    color: #71889a;
-    font-size: 14px;
+.coluna-principal,
+.coluna-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
 }
 
 .cartao {
-    display: grid;
-    grid-template-columns: 44% 1fr;
-    overflow: hidden;
-    border-radius: 25px;
-    background: #fff;
-    box-shadow: 0 15px 40px rgba(40, 86, 117, .1);
+    padding: 25px;
+    border: 1px solid #dfeefa;
+    border-radius: 22px;
+    background: white;
+    box-shadow: 0 8px 28px rgba(58, 112, 148, .05);
 }
 
-.foto {
-    width: 100%;
-    height: 100%;
-    min-height: 460px;
-    object-fit: cover;
+.cartao h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 17px;
+    font: 400 34px/1.1 'Mouse Memoirs', sans-serif;
+    color: #365b76;
 }
 
-.dados {
-    padding: 36px;
-}
-
-.subtitulo {
-    color: #78add2;
-    font-size: 12px;
-    font-weight: 800;
-}
-
-h2 {
-    margin: 2px 0;
-    font-size: 52px;
-}
-
-.local {
-    color: #71889a;
-    font-size: 13px;
-}
-
-.local i {
+.cartao h2 i {
+    font-size: 17px;
     color: #ff8c00;
 }
 
-.separador {
-    height: 1px;
-    background: #e4eff7;
-    margin: 23px 0;
+.apresentacao-pet {
+    display: grid;
+    grid-template-columns: 235px minmax(0, 1fr);
+    gap: 22px;
+    align-items: start;
 }
 
-h3 {
-    font-size: 16px;
-    margin: 0 0 18px;
+.foto-pet {
+    width: 235px;
+    height: 245px;
+    overflow: hidden;
+    border-radius: 17px;
+    background: #e6f4ff;
 }
 
-.informacao {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    margin-bottom: 16px;
+.foto-pet img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.informacao > i {
+.foto-pet.sem-foto {
     display: grid;
     place-items: center;
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
-    background: #eaf6ff;
-    color: #78add2;
 }
 
-.informacao div {
+.foto-pet.sem-foto i {
+    font-size: 70px;
+    color: #acd7f4;
+}
+
+.dados-destaque {
+    align-self: start;
+    padding: 2px 0;
+}
+
+.dados-destaque h2 {
+    font: 400 47px/1 'Mouse Memoirs', sans-serif;
+    margin: 8px 0 12px;
+}
+
+.dados-destaque p {
+    color: #6d8da3;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.65;
+    margin: 0 0 14px;
+}
+
+.resumo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.resumo-tags span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 11px;
+    background: #edf8ff;
+    border-radius: 10px;
+    color: #527c98;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.resumo-tags i {
+    color: #ff8c00;
+}
+
+.dados-grade {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+}
+
+.dado {
+    padding: 13px 15px;
+    border-radius: 12px;
+    background: #f5fbff;
+    border: 1px solid #e8f3fb;
+    min-width: 0;
+}
+
+.dado small {
+    display: block;
+    margin-bottom: 4px;
+    color: #89a8bb;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.dado strong {
+    display: block;
+    color: #426b87;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.texto-descricao {
+    margin: 0;
+    color: #66859a;
+    line-height: 1.8;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.responsavel-perfil {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    display: grid;
+    place-items: center;
+    width: 49px;
+    height: 49px;
+    flex: 0 0 49px;
+    border-radius: 50%;
+    background: #e8f5ff;
+    color: #70b1de;
+    font-size: 21px;
+}
+
+.responsavel-perfil strong {
+    display: block;
+    color: #365b76;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.responsavel-perfil span {
+    display: block;
+    margin-top: 3px;
+    color: #8ca8bb;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.contato-linha {
+    display: flex;
+    gap: 11px;
+    padding: 13px 0;
+    border-top: 1px solid #edf3f8;
+    align-items: flex-start;
+}
+
+.contato-linha i {
+    width: 18px;
+    margin-top: 3px;
+    color: #ff8c00;
+}
+
+.contato-linha small {
+    display: block;
+    color: #8ca8bb;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.contato-linha strong {
+    display: block;
+    margin-top: 3px;
+    color: #426b87;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.contato-acoes {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 9px;
+    margin-top: 17px;
 }
 
-.informacao strong {
-    font-size: 12px;
-}
-
-.informacao span {
-    font-size: 13px;
-    color: #71889a;
-}
-
-.aviso {
+.botao-contato {
     display: flex;
-    gap: 10px;
-    padding: 14px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 10px 14px;
     border-radius: 12px;
-    background: #fff3e5;
-    color: #865419;
+    text-decoration: none;
+    background: #96d1fa;
+    color: #285675;
     font-size: 12px;
-    line-height: 1.6;
+    font-weight: 900;
+    text-align: center;
 }
 
-.botao {
-    display: inline-block;
-    padding: 13px 22px;
-    margin-top: 13px;
-    border-radius: 12px;
-    background: #ff8c00;
-    color: white;
+.botao-contato:hover {
+    background: #7cc4f6;
+}
+
+.botao-contato.whatsapp {
+    background: #e1f6e9;
+    color: #268553;
+}
+
+.botao-contato.whatsapp:hover {
+    background: #c8eed8;
+}
+
+.aviso-seguranca {
+    background: #fff7ec;
+    border-color: #ffe8c8;
+}
+
+.aviso-seguranca p {
+    margin: 0;
+    color: #937b62;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+.carregando,
+.indisponivel {
+    padding: 45px 20px;
+    text-align: center;
+    border-radius: 20px;
+    background: white;
+    color: #648eab;
     font-weight: 800;
-    font-size: 13px;
 }
 
-.botao:hover {
-    background: #ed8100;
+.indisponivel h1 {
+    font: 400 50px 'Mouse Memoirs', sans-serif;
+    margin: 0 0 8px;
 }
 
-@media (max-width: 700px) {
-    .cartao {
+.indisponivel a {
+    display: inline-block;
+    margin-top: 18px;
+    color: #ff8c00;
+}
+
+@media (max-width: 900px) {
+    .pagina-grid {
         grid-template-columns: 1fr;
     }
-    
-    .foto {
-        height: 250px;
-        min-height: 0;
+
+    .coluna-lateral {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
     }
-    
-    .dados {
-        padding: 25px;
+}
+
+@media (max-width: 650px) {
+    .pagina-contato-adocao {
+        padding: 105px 15px 55px;
     }
-    
-    .topo {
-        padding: 18px;
+
+    .abertura {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .abertura-local {
+        padding-top: 0;
+    }
+
+    .apresentacao-pet {
+        grid-template-columns: 1fr;
+    }
+
+    .foto-pet {
+        width: 100%;
+        height: 260px;
+    }
+
+    .cartao {
+        padding: 19px;
+        border-radius: 17px;
+    }
+
+    .coluna-lateral {
+        display: flex;
+    }
+
+    .dados-grade {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 390px) {
+    .dados-grade {
+        grid-template-columns: 1fr;
     }
 }

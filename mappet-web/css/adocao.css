@@ -165,8 +165,8 @@ button {
     right: 5px;
     bottom: 5px;
     z-index: 2;
-    width: 245px;
-    max-height: 290px;
+    width: 335px;
+    max-height: 400px;
     object-fit: contain;
     filter: drop-shadow(0 10px 10px rgba(35, 83, 117, 0.12));
 }
@@ -496,23 +496,33 @@ button {
     flex-direction: column;
     min-width: 0;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.95);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: 24px;
-    background: rgba(255, 255, 255, 0.97);
-    box-shadow: 0 10px 25px rgba(36, 86, 122, 0.1);
-    transition: transform 0.25s, box-shadow 0.25s;
+    background: #ffffff;
+    box-shadow: 0 9px 24px rgba(40, 86, 117, 0.11);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 #gridAnimais .adocao-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 17px 35px rgba(36, 86, 122, 0.16);
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(40, 86, 117, 0.17);
 }
 
 #gridAnimais .adocao-img-container {
     position: relative;
-    height: 210px;
+    height: 225px;
     overflow: hidden;
-    background: var(--azul-claro);
+    background: #eaf6ff;
+}
+
+#gridAnimais .adocao-img-container::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 55px;
+    background: linear-gradient(transparent, rgba(22, 61, 90, 0.13));
+    pointer-events: none;
 }
 
 #gridAnimais .pet-img {
@@ -520,76 +530,90 @@ button {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.35s;
+    transition: transform 0.35s ease;
 }
 
 #gridAnimais .adocao-card:hover .pet-img {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
-
 
 #gridAnimais .adocao-info {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 22px;
+    min-width: 0;
+    padding: 21px 22px 22px;
 }
 
 #gridAnimais .adocao-info h3 {
-    color: var(--azul-escuro);
+    margin: 0;
+    color: #285675;
     font-family: "Mouse Memoirs", sans-serif;
-    font-size: 40px;
+    font-size: 43px;
     font-weight: 400;
-    line-height: 1;
+    line-height: 1.05;
+    letter-spacing: 0.3px;
 }
 
 #gridAnimais .pet-local {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 7px;
-    margin: 11px 0 15px;
-    color: var(--texto-suave);
-    font-size: 11px;
-    font-weight: 800;
+    margin: 8px 0 17px;
+    color: #71889a;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
 }
 
 #gridAnimais .pet-local i {
-    color: var(--laranja);
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #ff8c00;
+    font-size: 13px;
 }
 
 #gridAnimais .pet-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
 }
 
 #gridAnimais .tag {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 7px 10px;
-    border-radius: 9px;
-    background: var(--azul-claro);
-    color: var(--azul-escuro);
-    font-size: 10px;
+    justify-content: flex-start;
+    min-width: 0;
+    gap: 7px;
+    padding: 9px 10px;
+    border: 1px solid #e2f0fb;
+    border-radius: 11px;
+    background: #f2f9ff;
+    color: #416985;
+    font-size: 11px;
     font-weight: 800;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
 }
 
 #gridAnimais .tag i {
-    color: var(--azul-secundario);
+    flex-shrink: 0;
+    color: #78add2;
+    font-size: 13px;
 }
 
 #gridAnimais .pet-desc {
-    flex: 1;
-    margin-bottom: 18px;
-    color: var(--texto-suave);
-    font-size: 12px;
-    line-height: 1.75;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    flex: 1;
+    margin: 0 0 19px;
+    color: #6b8496;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.75;
 }
 
 #gridAnimais .btn-adotar {
@@ -598,22 +622,28 @@ button {
     justify-content: center;
     gap: 10px;
     width: 100%;
+    min-height: 47px;
     margin-top: auto;
-    padding: 13px 17px;
+    padding: 10px 15px;
     border: none;
-    border-radius: 12px;
-    background: var(--laranja);
-    color: var(--branco);
+    border-radius: 13px;
+    background: #ff8c00;
+    color: #ffffff;
     font-family: "Mouse Memoirs", sans-serif;
-    font-size: 25px;
+    font-size: 26px;
     font-weight: 400;
-    box-shadow: 0 6px 15px rgba(255, 140, 0, 0.16);
-    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 5px 12px rgba(255, 140, 0, 0.16);
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 #gridAnimais .btn-adotar:hover {
-    background: var(--laranja-hover);
+    background: #ed8100;
     transform: translateY(-2px);
+}
+
+#gridAnimais .btn-adotar:focus-visible {
+    outline: 3px solid #285675;
+    outline-offset: 3px;
 }
 
 #gridAnimais .btn-adotar i {

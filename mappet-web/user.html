@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script>
+        if (!localStorage.getItem('mappetSessao')) {
+            window.location.replace('./login.html');
+        }
+    </script>
     <title>MapPet | Área do Aconchego</title>
 
     <link rel="stylesheet" href="./css/user.css">
@@ -16,6 +21,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="./css/dropdown.css">
 </head>
 
 <body>
@@ -110,12 +116,13 @@
                 </div>
 
                 <div class="acoes-topo-direito">
+                    <a href="./perdidos-encontrados.html" class="atalho-pets-dashboard" aria-label="Ver animais perdidos e encontrados"><span class="atalho-pets-icone"><i class="fa-solid fa-paw"></i></span><span class="atalho-pets-texto"><strong>Explorar Pets</strong><small>Perdidos e encontrados</small></span><i class="fa-solid fa-arrow-up-right-from-square atalho-pets-seta"></i></a>
 
                     <button class="btn-icone-notif" aria-label="Notificações">
                         <i class="fa-regular fa-bell"></i>
                     </button>
 
-                    <div class="icone-perfil-topo">
+                    <div class="menu-perfil menu-perfil-dashboard"><button type="button" class="perfil-toggle" aria-expanded="false"><i class="fa-solid fa-user"></i><i class="fa-solid fa-chevron-down"></i></button><div class="perfil-dropdown"><a href="./user.html">Área do Usuário</a><button type="button" class="perfil-sair">Sair da conta</button></div></div><div class="icone-perfil-topo" style="display:none">
                         <i class="fa-solid fa-user"></i>
                     </div>
 
@@ -233,7 +240,7 @@
                             <button class="filtro-btn">
                                 Encontrados
                             </button>
-
+                            <button class="filtro-btn">Adoção</button>
                         </div>
 
                     </div>
@@ -354,9 +361,25 @@
 
                         </button>
 
+                        <button type="button" class="btn-tipo-cadastro" data-tipo="adocao">
+                            <i class="fa-solid fa-paw"></i>
+                            <span>Colocar para adoção</span>
+                        </button>
                     </div>
 
-                    <form id="form-pet-perdido" class="form-cadastro-pet ativo">
+                    <form id="form-pet-perdido" class="form-cadastro-pet ativo" novalidate>
+
+                        <div class="grupo-input">
+                            <label for="foto-pet-perdido">Foto do pet</label>
+                            <div class="upload-container">
+                                <input type="file" id="foto-pet-perdido" accept="image/*" required>
+                                <label for="foto-pet-perdido" class="upload-label">
+                                    <span class="upload-icone"><i class="fa-solid fa-camera"></i></span>
+                                    <span>Escolha uma foto do seu pet</span>
+                                </label>
+                                <img class="preview-foto" alt="Prévia da foto" hidden>
+                            </div>
+                        </div>
 
                         <div class="grupo-input">
 
@@ -401,16 +424,13 @@
                         </div>
 
                         <button type="submit" class="btn-cadastrar-submit">
-
                             <i class="fa-solid fa-paper-plane"></i>
-
-                            Publicar com carinho
-
+                            Publicar anúncio
                         </button>
 
                     </form>
 
-                    <form id="form-pet-encontrado" class="form-cadastro-pet">
+                    <form id="form-pet-encontrado" class="form-cadastro-pet" novalidate>
 
                         <div class="grupo-input">
 
@@ -420,7 +440,7 @@
 
                             <div class="upload-container">
 
-                                <input type="file" id="foto-pet-encontrado" accept="image/*">
+                                <input type="file" id="foto-pet-encontrado" accept="image/*" required>
 
                                 <label for="foto-pet-encontrado" class="upload-label">
 
@@ -433,9 +453,8 @@
                                     </span>
 
                                 </label>
-
+                                <img class="preview-foto" alt="Prévia da foto" hidden>
                             </div>
-
                         </div>
 
                         <div class="grupo-input">
@@ -496,13 +515,39 @@
                         </div>
 
                         <button type="submit" class="btn-cadastrar-submit">
-
                             <i class="fa-solid fa-paper-plane"></i>
-
-                            Publicar ajuda
-
+                            Publicar anúncio
                         </button>
 
+                    </form>
+
+                    <form id="form-pet-adocao" class="form-cadastro-pet" novalidate>
+                        <div class="grupo-input">
+                            <label for="foto-pet-adocao">Foto do pet para adoção</label>
+                            <div class="upload-container">
+                                <input type="file" id="foto-pet-adocao" accept="image/*" required>
+                                <label for="foto-pet-adocao" class="upload-label">
+                                    <span class="upload-icone"><i class="fa-solid fa-camera"></i></span>
+                                    <span>Escolha uma foto do bichinho</span>
+                                </label>
+                                <img class="preview-foto" alt="Prévia da foto" hidden>
+                            </div>
+                        </div>
+                        <div class="campos-duplos">
+                            <div class="grupo-input"><label for="nome-pet-adocao">Nome do pet</label><input id="nome-pet-adocao" required placeholder="Ex: Pipoca"></div>
+                            <div class="grupo-input"><label for="especie-pet-adocao">Espécie</label><select id="especie-pet-adocao" required><option value="">Selecione</option><option>Cachorro</option><option>Gato</option><option>Outro</option></select></div>
+                            <div class="grupo-input"><label for="raca-pet-adocao">Raça</label><input id="raca-pet-adocao" placeholder="Ex: SRD"></div>
+                            <div class="grupo-input"><label for="sexo-pet-adocao">Sexo</label><select id="sexo-pet-adocao" required><option value="">Selecione</option><option>Macho</option><option>Fêmea</option></select></div>
+                            <div class="grupo-input"><label for="idade-pet-adocao">Idade em meses</label><input type="number" min="0" id="idade-pet-adocao" required placeholder="Ex: 8"></div>
+                            <div class="grupo-input"><label for="porte-pet-adocao">Porte</label><select id="porte-pet-adocao" required><option value="">Selecione</option><option>Pequeno</option><option>Médio</option><option>Grande</option></select></div>
+                            <div class="grupo-input"><label for="cor-pet-adocao">Cor</label><input id="cor-pet-adocao" required placeholder="Ex: Caramelo"></div>
+                            <div class="grupo-input"><label for="cidade-pet-adocao">Cidade / UF</label><input id="cidade-pet-adocao" required placeholder="Ex: São Paulo - SP"></div>
+                            <div class="grupo-input"><label for="bairro-pet-adocao">Bairro</label><input id="bairro-pet-adocao" required placeholder="Ex: Ipiranga"></div>
+                            <div class="grupo-input"><label for="telefone-pet-adocao">Telefone para contato</label><input id="telefone-pet-adocao" type="tel" required placeholder="(11) 99999-9999"></div>
+                            <div class="grupo-input"><label for="email-pet-adocao">E-mail</label><input id="email-pet-adocao" type="email" required placeholder="exemplo@email.com"></div>
+                        </div>
+                        <div class="grupo-input"><label for="detalhes-pet-adocao">Sobre o pet e cuidados necessários</label><textarea id="detalhes-pet-adocao" rows="5" required placeholder="Conte sobre a personalidade, saúde e necessidades do bichinho..."></textarea></div>
+                        <button type="submit" class="btn-cadastrar-submit"><i class="fa-solid fa-paper-plane"></i> Publicar anúncio</button>
                     </form>
 
                 </div>

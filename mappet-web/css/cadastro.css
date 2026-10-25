@@ -281,20 +281,9 @@ a {
     gap: 12px;
 }
 
-.form-row.trio .input-group:nth-child(1) {
-    flex: 1.3;
-    min-width: 0;
-}
-
-.form-row.trio .input-group:nth-child(2) {
-    flex: 1;
-    min-width: 0;
-}
-
-.form-row.trio .input-group:nth-child(3) {
-    flex: 0.45;
-    min-width: 0;
-}
+.form-row.trio .input-group:nth-child(1) { flex: 1.1; min-width: 0; }
+.form-row.trio .input-group:nth-child(2) { flex: 0.95; min-width: 0; }
+.form-row.trio .input-group:nth-child(3) { flex: 1.5; min-width: 0; }
 
 .form-row.dupla .input-group {
     flex: 1;
@@ -369,12 +358,9 @@ a {
     padding-right: 8px;
 }
 
-#uf {
-    padding-left: 10px;
-    padding-right: 5px;
-    text-align: center;
-    text-transform: uppercase;
-}
+#uf { text-align: left; text-transform: none; padding-left: 40px; padding-right: 24px; }
+.input-wrapper select:disabled { cursor: not-allowed; color: #9daab6; background-color: #f0f3f6; opacity: 1; }
+.input-wrapper select { min-width: 0; }
 
 .btn-cadastrar {
     width: 100%;
@@ -517,13 +503,8 @@ a {
     }
 
     .form-row.trio .input-group:nth-child(1),
-    .form-row.trio .input-group:nth-child(2) {
-        flex: 1 1 calc(50% - 6px);
-    }
-
-    .form-row.trio .input-group:nth-child(3) {
-        flex: 1 1 100%;
-    }
+    .form-row.trio .input-group:nth-child(2) { flex: 1 1 calc(50% - 6px); }
+    .form-row.trio .input-group:nth-child(3) { flex: 1 1 100%; }
 
     .form-row.dupla {
         flex-direction: column;

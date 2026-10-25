@@ -1,0 +1,295 @@
+
+.pagina-detalhe {
+    padding: 132px 20px 85px;
+    background: #f7fbff;
+    min-height: 75vh;
+}
+
+.detalhe-largura {
+    max-width: 1160px;
+    margin: auto;
+}
+
+.voltar-pets {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #659cc0;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 900;
+    margin-bottom: 27px;
+}
+
+.voltar-pets:hover {
+    color: #ff8a00;
+}
+
+.detalhe-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 30px;
+    align-items: stretch;
+}
+
+.detalhe-foto {
+    min-height: 440px;
+    background: #e0f1fd;
+    border-radius: 27px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+.detalhe-foto img {
+    width: 100%;
+    height: 100%;
+    max-height: 540px;
+    object-fit: cover;
+}
+
+.detalhe-foto i {
+    color: #9acdeb;
+    font-size: 110px;
+}
+
+.detalhe-resumo {
+    border-radius: 27px;
+    padding: 39px;
+    background: linear-gradient(135deg, #e3f4ff, #ffffff);
+    border: 1px solid #d5eafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detalhe-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    align-self: flex-start;
+    padding: 9px 16px;
+    border-radius: 30px;
+    background: #fff1df;
+    color: #b86b24;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.detalhe-status.encontrado {
+    background: #e4f7ec;
+    color: #3b8964;
+}
+
+.detalhe-resumo h1 {
+    font: 400 clamp(54px, 6vw, 80px) 'Mouse Memoirs', sans-serif;
+    color: #365b76;
+    margin: 16px 0 5px;
+    overflow-wrap: anywhere;
+}
+
+.detalhe-subtitulo {
+    color: #7a98ac;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.7;
+}
+
+.detalhe-local {
+    margin-top: 25px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #557e99;
+    line-height: 1.6;
+}
+
+.detalhe-local i {
+    color: #ff8a00;
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+.detalhe-data {
+    margin-top: 13px;
+    color: #8da5b6;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.detalhe-grade {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(290px, .85fr);
+    gap: 25px;
+    align-items: start;
+    margin-top: 27px;
+}
+
+.detalhe-coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.detalhe-card {
+    background: #fff;
+    border: 1px solid #e0edf6;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 8px 25px rgba(74, 131, 163, .06);
+}
+
+.detalhe-card h2 {
+    font: 400 39px 'Mouse Memoirs', sans-serif;
+    color: #365b76;
+    margin: 0 0 16px;
+}
+
+.detalhe-card h2 i {
+    font-size: 20px;
+    color: #ff8a00;
+    vertical-align: middle;
+    margin-right: 7px;
+}
+
+.detalhe-campos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.detalhe-campo {
+    border-radius: 13px;
+    padding: 15px;
+    background: #f6fbff;
+    border: 1px solid #e9f3fa;
+    min-width: 0;
+}
+
+.detalhe-campo strong {
+    display: block;
+    color: #82a5bd;
+    font-size: 11px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.detalhe-campo span {
+    color: #3c617c;
+    font-size: 14px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.detalhe-descricao {
+    color: #6f8b9e;
+    font-size: 14px;
+    line-height: 1.9;
+    font-weight: 700;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.detalhe-ajuda {
+    background: #fff7ee;
+    border: 1px solid #ffe6c9;
+}
+
+.detalhe-ajuda p {
+    color: #8e725a;
+    font-size: 13px;
+    line-height: 1.8;
+    font-weight: 700;
+}
+
+.detalhe-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-top: 20px;
+}
+
+.detalhe-botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 13px 16px;
+    border-radius: 12px;
+    background: #96d1fa;
+    color: #285675;
+    font-size: 13px;
+    font-weight: 900;
+    text-decoration: none;
+    text-align: center;
+}
+
+.detalhe-botao:hover {
+    background: #7fc2f1;
+}
+
+.detalhe-botao.whatsapp {
+    background: #e5f8ed;
+    color: #31845a;
+}
+
+.detalhe-botao.whatsapp:hover {
+    background: #d0f0df;
+}
+
+.detalhe-indisponivel {
+    text-align: center;
+    background: white;
+    border-radius: 24px;
+    padding: 65px 20px;
+}
+
+.detalhe-indisponivel i {
+    color: #96d1fa;
+    font-size: 52px;
+}
+
+.detalhe-indisponivel h1 {
+    font: 400 54px 'Mouse Memoirs', sans-serif;
+    margin: 15px 0;
+}
+
+.detalhe-indisponivel p {
+    color: #7a98ac;
+    font-weight: 700;
+}
+
+@media (max-width: 850px) {
+    .detalhe-hero,
+    .detalhe-grade {
+        grid-template-columns: 1fr;
+    }
+
+    .detalhe-foto {
+        min-height: 330px;
+    }
+}
+
+@media (max-width: 550px) {
+    .pagina-detalhe {
+        padding: 108px 15px 55px;
+    }
+
+    .detalhe-foto {
+        min-height: 260px;
+    }
+
+    .detalhe-resumo {
+        padding: 26px;
+    }
+
+    .detalhe-card {
+        padding: 21px;
+    }
+
+    .detalhe-campos {
+        grid-template-columns: 1fr;
+    }
+}
