@@ -727,6 +727,29 @@
 
     </div>
 
+    <div id="modal-publicacao" class="modal-pet-overlay" role="dialog" aria-modal="true" aria-labelledby="titulo-publicacao" hidden>
+        <div class="modal-pet-caixa">
+            <div class="modal-pet-simbolo sucesso"><i class="fa-solid fa-paw"></i></div>
+            <span class="modal-pet-etiqueta">MapPet • Tudo prontinho!</span>
+            <h3 id="titulo-publicacao">Anúncio publicado!</h3>
+            <p>Seu anúncio foi cadastrado com sucesso. Agora mais pessoas podem conhecer esse bichinho!</p>
+            <button type="button" id="btn-ok-publicacao" class="modal-pet-botao principal">Que alegria! <i class="fa-solid fa-heart"></i></button>
+        </div>
+    </div>
+
+    <div id="modal-exclusao" class="modal-pet-overlay" role="dialog" aria-modal="true" aria-labelledby="titulo-exclusao" hidden>
+        <div class="modal-pet-caixa">
+            <div class="modal-pet-simbolo perigo"><i class="fa-solid fa-trash-can"></i></div>
+            <span class="modal-pet-etiqueta">Gerenciar publicação</span>
+            <h3 id="titulo-exclusao">Excluir anúncio?</h3>
+            <p id="texto-exclusao">Tem certeza de que deseja excluir este anúncio? Essa ação não pode ser desfeita.</p>
+            <div class="modal-pet-acoes">
+                <button type="button" id="btn-cancelar-exclusao" class="modal-pet-botao secundario">Manter anúncio</button>
+                <button type="button" id="btn-confirmar-exclusao" class="modal-pet-botao excluir"><i class="fa-solid fa-trash-can"></i> Sim, excluir</button>
+            </div>
+        </div>
+    </div>
+
     <script src="./js/storage.js"></script>
     <script src="./js/user.js"></script>
 </body>

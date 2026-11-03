@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     let usuario = MapPet.usuarioLogado();
     if (!usuario) {
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = './index.html';
         });
     }
+
     if (!Array.isArray(usuario.pets)) usuario.pets = [];
     if (!usuario.configuracoes) usuario.configuracoes = {};
     const nome = usuario.nome.trim().split(' ')[0];
@@ -28,6 +30,72 @@ document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('modal-edicao');
     let filtroAtual = 'todos';
     let petEditando = '';
+    let idParaExcluir = '';
+    let redirecionarAdocao = false;
+
+    if (!document.getElementById('modal-publicacao')) {
+        document.body.insertAdjacentHTML('beforeend', `<div id="modal-publicacao" class="modal-pet-overlay" role="dialog" aria-modal="true" aria-labelledby="titulo-publicacao" hidden><div class="modal-pet-caixa"><div class="modal-pet-simbolo sucesso"><i class="fa-solid fa-paw"></i></div><span class="modal-pet-etiqueta">MapPet • Tudo prontinho!</span><h3 id="titulo-publicacao">Anúncio publicado!</h3><p>Seu anúncio foi cadastrado com sucesso.</p><button type="button" id="btn-ok-publicacao" class="modal-pet-botao principal">Continuar</button></div></div>`);
+    }
+
+    if (!document.getElementById('modal-exclusao')) {
+        document.body.insertAdjacentHTML('beforeend', `<div id="modal-exclusao" class="modal-pet-overlay" role="dialog" aria-modal="true" aria-labelledby="titulo-exclusao" hidden><div class="modal-pet-caixa"><div class="modal-pet-simbolo perigo"><i class="fa-solid fa-trash-can"></i></div><h3 id="titulo-exclusao">Excluir anúncio?</h3><p id="texto-exclusao"></p><div class="modal-pet-acoes"><button type="button" id="btn-cancelar-exclusao" class="modal-pet-botao secundario">Cancelar</button><button type="button" id="btn-confirmar-exclusao" class="modal-pet-botao excluir">Sim, excluir</button></div></div></div>`);
+    }
+
+    const modalPublicacao = document.getElementById('modal-publicacao');
+    const modalExclusao = document.getElementById('modal-exclusao');
+
+    function abrirModalPet(elemento) {
+        elemento.hidden = false;
+        elemento.querySelector('button').focus();
+    }
+
+    function fecharModalPet(elemento) {
+        elemento.hidden = true;
+    }
+
+    document.getElementById('btn-ok-publicacao').addEventListener('click', function () {
+        fecharModalPet(modalPublicacao);
+        if (redirecionarAdocao) {
+            redirecionarAdocao = false;
+            window.location.href = './adocao.html#encontrar-pet';
+        }
+    });
+
+    document.getElementById('btn-cancelar-exclusao').addEventListener('click', function () {
+        fecharModalPet(modalExclusao);
+        idParaExcluir = '';
+    });
+
+    document.getElementById('btn-confirmar-exclusao').addEventListener('click', function () {
+        const id = idParaExcluir;
+        const pet = usuario.pets.find(function (item) { return item.id === id; });
+        if (pet) {
+            usuario.pets = usuario.pets.filter(function (item) { return item.id !== id; });
+            if (pet.tipo === 'adocao') usuario.adocoes = (usuario.adocoes || []).filter(function (item) { return item.id !== id; });
+            salvar();
+        }
+        idParaExcluir = '';
+        fecharModalPet(modalExclusao);
+    });
+
+    [modalPublicacao, modalExclusao].forEach(function (elemento) {
+        elemento.addEventListener('click', function (evento) {
+            if (evento.target === elemento) {
+                if (elemento === modalPublicacao && redirecionarAdocao) return;
+                fecharModalPet(elemento);
+                if (elemento === modalExclusao) idParaExcluir = '';
+            }
+        });
+    });
+
+    document.addEventListener('keydown', function (evento) {
+        if (evento.key === 'Escape') {
+            if (!modalPublicacao.hidden && redirecionarAdocao) return;
+            fecharModalPet(modalPublicacao);
+            fecharModalPet(modalExclusao);
+            idParaExcluir = '';
+        }
+    });
 
     function salvar() {
         MapPet.salvarUsuario(usuario);
@@ -276,8 +344,31 @@ document.addEventListener('DOMContentLoaded', function () {
                     preview.removeAttribute('src');
                 }
                 document.querySelector('[data-target="secao-perfil"]').click();
-                if (tipo === 'adocao') { window.location.href = './adocao.html#encontrar-pet'; return; }
-                alert('Publicação cadastrada com sucesso!');
+                redirecionarAdocao = tipo === 'adocao';
+
+                const etiqueta = modalPublicacao.querySelector('.modal-pet-etiqueta');
+                const titulo = modalPublicacao.querySelector('h3');
+                const mensagem = modalPublicacao.querySelector('p');
+                const botao = document.getElementById('btn-ok-publicacao');
+
+                if (tipo === 'perdido') {
+                    etiqueta.textContent = 'MapPet • Estamos com você!';
+                    titulo.textContent = 'Vamos encontrar seu pet!';
+                    mensagem.textContent = 'Seu anúncio foi publicado com sucesso! Esperamos que seu companheirinho volte para casa o mais rápido possível.';
+                    botao.textContent = 'Continuar';
+                } else if (tipo === 'encontrado') {
+                    etiqueta.textContent = 'MapPet • Um gesto de carinho!';
+                    titulo.textContent = 'Obrigado por ajudar!';
+                    mensagem.textContent = 'Seu anúncio foi publicado com sucesso! Sua atitude pode ajudar esse bichinho a reencontrar sua família.';
+                    botao.textContent = 'Que alegria! ♥';
+                } else {
+                    etiqueta.textContent = 'MapPet • Um novo começo!';
+                    titulo.textContent = 'Anúncio publicado!';
+                    mensagem.textContent = 'Seu anúncio foi publicado com sucesso! Agora esse bichinho está mais perto de encontrar um lar cheio de amor.';
+                    botao.textContent = 'Que alegria! ♥';
+                }
+
+                abrirModalPet(modalPublicacao);
             } catch (erro) {
                 usuario.pets.pop();
                 if (tipo === 'adocao') usuario.adocoes.pop();
@@ -302,13 +393,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!pet) return;
 
         if (botao.dataset.acao === 'excluir') {
-            if (confirm('Excluir a publicação de ' + pet.nome + '?')) {
-                usuario.pets = usuario.pets.filter(function (item) {
-                    return item.id !== id;
-                });
-                if (pet.tipo === 'adocao') usuario.adocoes = (usuario.adocoes || []).filter(function (item) { return item.id !== id; });
-                salvar();
-            }
+            idParaExcluir = id;
+            document.getElementById('texto-exclusao').textContent = 'Tem certeza de que deseja excluir a publicação de ' + pet.nome + '? Essa ação não pode ser desfeita.';
+            abrirModalPet(modalExclusao);
         }
 
         if (botao.dataset.acao === 'reencontrar') {

@@ -2460,3 +2460,21 @@ html, body {
     }
 
 }
+
+.modal-pet-overlay[hidden] { display: none !important; }
+.modal-pet-overlay { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(28, 55, 78, .52); backdrop-filter: blur(5px); }
+.modal-pet-caixa { width: 100%; max-width: 425px; padding: 35px 30px 30px; border-radius: 28px; background: #fff; text-align: center; box-shadow: 0 24px 70px rgba(28, 66, 96, .22); animation: modalPetEntrada .22s ease-out; }
+.modal-pet-simbolo { display: flex; align-items: center; justify-content: center; width: 84px; height: 84px; margin: 0 auto 19px; border-radius: 28px; font-size: 34px; }
+.modal-pet-simbolo.sucesso { background: #e5f6ff; color: #65afe0; }
+.modal-pet-simbolo.perigo { background: #fff0f2; color: #e77c8d; }
+.modal-pet-etiqueta { color: #7aafcf; font-size: 12px; font-weight: 700; }
+.modal-pet-caixa h3 { margin: 10px 0; color: #31526b; font-family: 'Mouse Memoirs', sans-serif; font-size: 34px; font-weight: 400; }
+.modal-pet-caixa p { margin-bottom: 26px; color: #8099ab; font-size: 14px; line-height: 1.7; font-weight: 600; }
+.modal-pet-acoes { display: flex; gap: 10px; }
+.modal-pet-botao { min-height: 46px; padding: 12px 17px; border: 0; border-radius: 14px; font-size: 13px; font-weight: 700; transition: transform .2s, filter .2s; }
+.modal-pet-botao:hover { transform: translateY(-2px); filter: brightness(.97); }
+.modal-pet-botao.principal { width: 100%; color: white; background: #80bde7; }
+.modal-pet-botao.secundario { flex: 1; background: #eef7fc; color: #648aa5; }
+.modal-pet-botao.excluir { flex: 1; background: #ed8796; color: white; }
+@keyframes modalPetEntrada { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (max-width: 450px) { .modal-pet-caixa { padding: 28px 20px; } .modal-pet-acoes { flex-direction: column; } }
